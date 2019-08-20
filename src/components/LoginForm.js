@@ -47,10 +47,14 @@ class LoginForm extends Component {
   }
 }
 
+const mapDispatchToProps = {
+  login
+};
+
 export default connect(
   ({ auth }) => ({
     isLoading: auth.loginLoading,
     err: auth.loginError
   }),
-  { login }
+  mapDispatchToProps
 )(LoginForm);
