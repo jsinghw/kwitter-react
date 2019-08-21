@@ -1,4 +1,5 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
+import { getLoggedInUserMessages } from "./messages";
 
 // action type constants
 export const GET_USER = "GET_USER";
@@ -29,4 +30,10 @@ export const getUser = username => dispatch => {
 export const getLoggedInUser = () => (dispatch, getState) => {
   const username = getState().auth.login.username;
   return dispatch(getUser(username));
+};
+
+export const getLoggedInUserProfileInfo = () => dispatch => {
+  return dispatch(getLoggedInUser()).then(() =>
+    dispatch(getLoggedInUserMessages())
+  );
 };
