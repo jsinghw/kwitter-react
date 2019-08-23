@@ -1,7 +1,8 @@
 import {
   GET_USER_MESSAGES,
   GET_USER_MESSAGES_SUCCESS,
-  GET_USER_MESSAGES_FAIL
+  GET_USER_MESSAGES_FAIL,
+  LOGOUT_SUCCESS
 } from "../actions";
 
 const initialState = {
@@ -29,6 +30,10 @@ export default (state = initialState, action) => {
         ...state,
         getUserMessagesError: action.payload,
         getUserMessagesLoading: false
+      };
+    case LOGOUT_SUCCESS:
+      return {
+        ...initialState
       };
     default:
       return state;

@@ -1,9 +1,21 @@
-import { GET_USER, GET_USER_SUCCESS, GET_USER_FAIL } from "../actions";
+import {
+  GET_USER,
+  GET_USER_SUCCESS,
+  GET_USER_FAIL,
+  REGISTER_USER,
+  REGISTER_USER_SUCCESS,
+  REGISTER_USER_FAIL,
+  UPLOAD_USER_PICTURE,
+  LOGOUT_SUCCESS
+} from "../actions";
 
 const initialState = {
   getUserLoading: false,
   getUser: {},
-  getUserError: null
+  getUserError: null,
+  registerUserLoading: false,
+  registerUser: null,
+  registerUserError: null
 };
 
 export default (state = initialState, action) => {
@@ -25,6 +37,28 @@ export default (state = initialState, action) => {
         ...state,
         getUserError: action.payload,
         getUserLoading: false
+      };
+    case REGISTER_USER:
+      return {
+        ...state,
+        registerUserLoading: true,
+        registerUserError: null
+      };
+    case REGISTER_USER_SUCCESS:
+      return {
+        ...state,
+        registerUser: action.payload,
+        registerUserLoading: false
+      };
+    case REGISTER_USER_FAIL:
+      return {
+        ...state,
+        registerUserError: action.payload,
+        registerUserLoading: false
+      };
+    case LOGOUT_SUCCESS:
+      return {
+        ...initialState
       };
     default:
       return state;
