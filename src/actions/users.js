@@ -105,3 +105,9 @@ export const uploadUserPicture = formData => (dispatch, getState) => {
       );
     });
 };
+
+export const uploadUserPictureThenGetLoggedInUser = formData => dispatch => {
+  return dispatch(uploadUserPicture(formData)).then(() =>
+    dispatch(getLoggedInUser())
+  );
+};

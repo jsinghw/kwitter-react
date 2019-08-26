@@ -3,8 +3,10 @@ import { connect } from "react-redux";
 import {
   logoutThenGoToHomepage as logout,
   getLoggedInUserProfileInfo,
-  uploadUserPicture as uploadPicture
+  uploadUserPictureThenGetLoggedInUser as uploadPicture
 } from "../actions";
+import { Link } from "react-router-dom";
+import { MessageList } from ".";
 
 class UserProfile extends Component {
   // this.props.getUser
@@ -21,8 +23,12 @@ class UserProfile extends Component {
   render() {
     return (
       <>
+        <Link to="/feed">
+          <button>Message Feed</button>
+        </Link>
         This is the user profile
         <img
+          alt="profile"
           src={
             "https://kwitter-api.herokuapp.com" +
             this.props.user.pictureLocation
@@ -38,16 +44,7 @@ class UserProfile extends Component {
           <button type="submit">Upload Picture</button>
         </form>
         <button onClick={this.props.logout}>Logout</button>
-        {this.props.messages.map(message => {
-          return (
-            <React.Fragment key={message.id}>
-              <p>{message.username}</p>
-              <p>{new Date(message.createdAt).toDateString()}</p>
-              <p>{message.text}</p>
-              <p>Number of likes: {message.likes.length}</p>
-            </React.Fragment>
-          );
-        })}
+        <MessageList messages={this.props.messages} />
       </>
     );
   }
