@@ -100,3 +100,36 @@ export const deleteMessage = messageId => (dispatch, getState) => {
       );
     });
 };
+
+// action type constants
+export const CREATE_MESSAGE = "CREATE_MESSAGE";
+export const CREATE_MESSAGE_SUCCESS = "CREATE_MESSAGE_SUCCESS";
+export const CREATE_MESSAGE_FAIL = "CREATE_MESSAGE_FAIL";
+
+export const createMessage = messageData => (dispatch, getState) => {
+  dispatch({
+    type: CREATE_MESSAGE
+  });
+  const { token } = getState().auth.login;
+
+  return fetch(url, {
+    method: "POST",
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders },
+    body: JSON.stringify(messageData)
+  })
+    .then(handleJsonResponse)
+    .then(result => {
+      return dispatch({
+        type: CREATE_MESSAGE_SUCCESS,
+        payload: result
+      });
+    })
+    .catch(err => {
+      return Promise.reject(
+        dispatch({
+          type: CREATE_MESSAGE_FAIL,
+          payload: err
+        })
+      );
+    });
+};

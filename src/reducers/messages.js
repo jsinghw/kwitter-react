@@ -5,7 +5,13 @@ import {
   LOGOUT_SUCCESS,
   GET_MESSAGES,
   GET_MESSAGES_FAIL,
-  GET_MESSAGES_SUCCESS
+  GET_MESSAGES_SUCCESS,
+  DELETE_MESSAGE,
+  DELETE_MESSAGE_SUCCESS,
+  DELETE_MESSAGE_FAIL,
+  CREATE_MESSAGE,
+  CREATE_MESSAGE_SUCCESS,
+  CREATE_MESSAGE_FAIL
 } from "../actions";
 
 const initialState = {
@@ -14,7 +20,11 @@ const initialState = {
   getUserMessagesError: null,
   getMessagesLoading: false,
   getMessages: [],
-  getMessagesError: null
+  getMessagesError: null,
+  deleteMessageLoading: false,
+  deleteMessageError: null,
+  createMessageLoading: false,
+  createMessageError: null
 };
 
 export default (state = initialState, action) => {
@@ -54,6 +64,46 @@ export default (state = initialState, action) => {
         ...state,
         getMessagesLoading: false,
         getMessagesError: action.payload
+      };
+    case DELETE_MESSAGE:
+      return {
+        ...state,
+        deleteMessageLoading: false,
+        deleteMessageError: null
+      };
+    case DELETE_MESSAGE_SUCCESS:
+      const messageIdToDelete = action.payload.id;
+      const callback = message => message.id !== messageIdToDelete;
+      return {
+        ...state,
+        deleteMessageLoading: true,
+        getMessages: state.getMessages.filter(callback),
+        getUserMessages: state.getUserMessages.filter(callback)
+      };
+    case DELETE_MESSAGE_FAIL:
+      return {
+        ...state,
+        deleteMessageLoading: false,
+        deleteMessageError: action.payload
+      };
+    case CREATE_MESSAGE:
+      return {
+        ...state,
+        createMessageLoading: true,
+        createMessageError: null
+      };
+    case CREATE_MESSAGE_SUCCESS:
+      return {
+        ...state,
+        createMessageLoading: false,
+        getUserMessages: [action.payload.message, ...state.getUserMessages],
+        getMessages: [action.payload.message, ...state.getMessages]
+      };
+    case CREATE_MESSAGE_FAIL:
+      return {
+        ...state,
+        createMessageLoading: false,
+        createMessageError: action.payload
       };
     case LOGOUT_SUCCESS:
       return {
