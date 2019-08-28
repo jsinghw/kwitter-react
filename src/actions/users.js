@@ -111,3 +111,49 @@ export const uploadUserPictureThenGetLoggedInUser = formData => dispatch => {
     dispatch(getLoggedInUser())
   );
 };
+
+// action type constants
+export const UPDATE_USER = "UPDATE_USER";
+export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS";
+export const UPDATE_USER_FAIL = "UPDATE_USER_FAIL";
+
+export const updateUser = updateUserData => (dispatch, getState) => {
+  dispatch({
+    type: UPDATE_USER
+  });
+
+  const { username, token } = getState().auth.login;
+
+  const newUpdateUserData = {};
+  if (updateUserData.password !== "") {
+    newUpdateUserData.password = updateUserData.password;
+  }
+  if (updateUserData.displayName !== "") {
+    newUpdateUserData.displayName = updateUserData.displayName;
+  }
+
+  if (updateUserData.about !== "") {
+    newUpdateUserData.about = updateUserData.about;
+  }
+
+  return fetch(url + "/" + username, {
+    method: "PATCH",
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders },
+    body: JSON.stringify(newUpdateUserData)
+  })
+    .then(handleJsonResponse)
+    .then(result => {
+      return dispatch({
+        type: UPDATE_USER_SUCCESS,
+        payload: result
+      });
+    })
+    .catch(err => {
+      return Promise.reject(
+        dispatch({
+          type: UPDATE_USER_FAIL,
+          payload: err
+        })
+      );
+    });
+};

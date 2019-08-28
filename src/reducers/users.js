@@ -5,7 +5,8 @@ import {
   REGISTER_USER,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL,
-  LOGOUT_SUCCESS
+  LOGOUT_SUCCESS,
+  UPDATE_USER_SUCCESS
 } from "../actions";
 
 const initialState = {
@@ -54,6 +55,11 @@ export default (state = initialState, action) => {
         ...state,
         registerUserError: action.payload,
         registerUserLoading: false
+      };
+    case UPDATE_USER_SUCCESS:
+      return {
+        ...state,
+        getUser: action.payload.user
       };
     case LOGOUT_SUCCESS:
       return {
