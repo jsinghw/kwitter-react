@@ -11,7 +11,9 @@ import {
   DELETE_MESSAGE_FAIL,
   CREATE_MESSAGE,
   CREATE_MESSAGE_SUCCESS,
-  CREATE_MESSAGE_FAIL
+  CREATE_MESSAGE_FAIL,
+  ADD_LIKE_SUCCESS,
+  REMOVE_LIKE_SUCCESS
 } from "../actions";
 
 const initialState = {
@@ -105,6 +107,42 @@ export default (state = initialState, action) => {
         createMessageLoading: false,
         createMessageError: action.payload
       };
+    case ADD_LIKE_SUCCESS: {
+      const addLikeCallback = message => {
+        if (message.id === action.payload.like.messageId) {
+          message.likes = [action.payload.like, ...message.likes];
+        }
+        return message;
+      };
+
+      const newGetMessages = state.getMessages.map(addLikeCallback);
+      const newGetUserMessages = state.getUserMessages.map(addLikeCallback);
+
+      return {
+        ...state,
+        getMessages: newGetMessages,
+        getUserMessages: newGetUserMessages
+      };
+    }
+
+    case REMOVE_LIKE_SUCCESS: {
+      // action.paylod - { id }
+      const removeLikeCallback = message => {
+        message.likes = message.likes.filter(
+          like => like.id !== action.payload.id
+        );
+        return message;
+      };
+
+      const newGetMessages = state.getMessages.map(removeLikeCallback);
+      const newGetUserMessages = state.getUserMessages.map(removeLikeCallback);
+
+      return {
+        ...state,
+        getMessages: newGetMessages,
+        getUserMessages: newGetUserMessages
+      };
+    }
     case LOGOUT_SUCCESS:
       return {
         ...initialState

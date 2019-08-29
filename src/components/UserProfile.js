@@ -4,7 +4,8 @@ import {
   logoutThenGoToHomepage as logout,
   getLoggedInUserProfileInfo,
   uploadUserPictureThenGetLoggedInUser as uploadPicture,
-  updateUser
+  updateUser,
+  deleteUser
 } from "../actions";
 import { Link } from "react-router-dom";
 import { MessageList } from ".";
@@ -29,6 +30,12 @@ class UserProfile extends Component {
   handleUpdateUser = event => {
     event.preventDefault();
     this.props.updateUser(this.state);
+  };
+
+  handleDeleteAccount = event => {
+    if (window.confirm("Are you sure you want to delete your account?")) {
+      this.props.deleteUser();
+    }
   };
 
   handleChange = event => {
@@ -59,6 +66,7 @@ class UserProfile extends Component {
         <p>About: {this.props.user.about}</p>
         <p>Created: {new Date(this.props.user.createdAt).toDateString()}</p>
         <p>Updated: {new Date(this.props.user.updatedAt).toDateString()}</p>
+        <button onClick={this.handleDeleteAccount}>Delete Account</button>
         <h2>Update your user info</h2>
         <form onSubmit={this.handleUpdateUser}>
           <label htmlFor="password">Password</label>
@@ -85,5 +93,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { logout, getLoggedInUserProfileInfo, uploadPicture, updateUser }
+  { logout, getLoggedInUserProfileInfo, uploadPicture, updateUser, deleteUser }
 )(UserProfile);

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { deleteMessage } from "../actions";
+import { deleteMessage, toggleLike } from "../actions";
 import { connect } from "react-redux";
 
 class MessageList extends Component {
@@ -12,6 +12,9 @@ class MessageList extends Component {
           <p>{new Date(message.createdAt).toDateString()}</p>
           <p>{message.text}</p>
           <p>Number of likes: {message.likes.length}</p>
+          <button onClick={event => this.props.toggleLike(message.id)}>
+            Like/Unlike
+          </button>
           {isDeletable && (
             <button onClick={event => this.props.deleteMessage(message.id)}>
               Delete
@@ -29,5 +32,5 @@ export default connect(
       username: state.auth.login.username
     };
   },
-  { deleteMessage }
+  { deleteMessage, toggleLike }
 )(MessageList);
