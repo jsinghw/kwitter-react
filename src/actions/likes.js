@@ -61,16 +61,12 @@ export const addLike = messageId => (dispatch, getState) => {
 };
 
 export const toggleLike = messageId => (dispatch, getState) => {
-  // to add like - messageId
-  // to remove like - likeId
-  // requirement - logged in username
   const username = getState().auth.login.username;
   const messages = getState().messages.getMessages;
 
   const message = messages.find(message => message.id === messageId);
   const like = message.likes.find(like => like.username === username);
-  // if the message is already liked, then we remove like
-  // else add like
+
   if (like) {
     dispatch(removeLike(like.id));
   } else {
