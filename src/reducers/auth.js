@@ -8,7 +8,7 @@ import {
 
 const initialState = {
   loginLoading: false,
-  login: null,
+  login: {},
   loginError: null,
   logoutLoading: false,
   logoutError: null

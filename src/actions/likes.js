@@ -64,7 +64,11 @@ export const toggleLike = messageId => (dispatch, getState) => {
   const username = getState().auth.login.username;
   const messages = getState().messages.getMessages;
 
-  const message = messages.find(message => message.id === messageId);
+  let message = messages.find(message => message.id === messageId);
+  if (!message) {
+    const userMessages = getState().messages.getUserMessages;
+    message = userMessages.find(message => message.id === messageId);
+  }
   const like = message.likes.find(like => like.username === username);
 
   if (like) {

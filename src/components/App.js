@@ -7,7 +7,13 @@ class App extends Component {
     return (
       <Switch>
         <Route exact path="/" render={() => <Homepage />} />
-        <Route exact path="/profile" render={() => <UserProfile />} />
+        <Route
+          exact
+          path="/profile/:username"
+          render={routeProps => (
+            <UserProfile username={routeProps.match.params.username} />
+          )}
+        />
         <Route exact path="/register" render={() => <RegisterForm />} />
         <Route exact path="/feed" render={() => <MessageFeed />} />
       </Switch>

@@ -1,5 +1,5 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
-import { getLoggedInUserMessages } from "./messages";
+import { getLoggedInUserMessages, getUserMessages } from "./messages";
 import { push } from "connected-react-router";
 
 // action type constants
@@ -36,6 +36,12 @@ export const getLoggedInUser = () => (dispatch, getState) => {
 export const getLoggedInUserProfileInfo = () => dispatch => {
   return dispatch(getLoggedInUser()).then(() =>
     dispatch(getLoggedInUserMessages())
+  );
+};
+
+export const getUserProfileInfo = username => dispatch => {
+  return dispatch(getUser(username)).then(() =>
+    dispatch(getUserMessages(username))
   );
 };
 

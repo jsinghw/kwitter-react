@@ -20,7 +20,7 @@ class MessageFeed extends Component {
   render() {
     return (
       <>
-        <Link to="/profile">
+        <Link to={"/profile/" + this.props.username}>
           <button>My Profile</button>
         </Link>
         <textarea name="text" onChange={this.handleChange}></textarea>
@@ -36,7 +36,8 @@ class MessageFeed extends Component {
 export default connect(
   state => {
     return {
-      messages: state.messages.getMessages
+      messages: state.messages.getMessages,
+      username: state.auth.login.username
     };
   },
   { getMessages, createMessage }
