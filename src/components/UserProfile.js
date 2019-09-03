@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { domain } from "../actions/constants";
 import {
   logoutThenGoToHomepage as logout,
   getUserProfileInfo,
@@ -66,8 +67,9 @@ class UserProfile extends Component {
         <img
           alt="profile"
           src={
-            "https://kwitter-api.herokuapp.com" +
             this.props.user.pictureLocation
+              ? domain + this.props.user.pictureLocation
+              : "http://r.ddmcdn.com/s_f/o_1/cx_462/cy_245/cw_1349/ch_1349/w_720/APL/uploads/2015/06/caturday-shutterstock_149320799.jpg"
           }
         />
         {isOwnProfile && (
