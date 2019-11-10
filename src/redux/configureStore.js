@@ -1,7 +1,7 @@
 import { createBrowserHistory } from "history";
 import { applyMiddleware, createStore } from "redux";
 import { routerMiddleware } from "connected-react-router";
-import createRootReducer from "./reducers";
+import createRootReducer from "./stateReducers";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
@@ -23,7 +23,7 @@ export default function configureStore(preloadedState) {
   );
 
   store.subscribe(() => {
-    localStorage.setItem("auth", JSON.stringify(store.getState().auth));
+    localStorage.setItem("login", JSON.stringify(store.getState().auth.login));
   });
 
   return store;

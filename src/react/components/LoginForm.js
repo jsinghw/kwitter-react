@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { loginThenGoToUserProfile as login } from "../actions";
-import Spinner from "react-spinkit";
+import React from "react";
+import { Spinner } from ".";
+import { withAsyncAction } from "../HOCs";
+import "./LoginForm.css";
 
-class LoginForm extends Component {
+class LoginForm extends React.Component {
   state = { username: "", password: "" };
 
   handleLogin = e => {
@@ -16,11 +16,10 @@ class LoginForm extends Component {
   };
 
   render() {
-    const { isLoading, err } = this.props;
+    const { loading, error } = this.props;
     return (
       <React.Fragment>
-        <h1>Login</h1>
-        <form onSubmit={this.handleLogin}>
+        <form id="login-form" onSubmit={this.handleLogin}>
           <label htmlFor="username">Username</label>
           <input
             type="text"
@@ -36,21 +35,15 @@ class LoginForm extends Component {
             required
             onChange={this.handleChange}
           />
-          <button type="submit" disabled={isLoading}>
+          <button type="submit" disabled={loading}>
             Login
           </button>
         </form>
-        {isLoading && <Spinner name="circle" color="blue" />}
-        {err && <p style={{ color: "red" }}>{err}</p>}
+        {loading && <Spinner name="circle" color="blue" />}
+        {error && <p style={{ color: "red" }}>{error.message}</p>}
       </React.Fragment>
     );
   }
 }
 
-export default connect(
-  ({ auth }) => ({
-    isLoading: auth.loginLoading,
-    err: auth.loginError
-  }),
-  { login }
-)(LoginForm);
+export default withAsyncAction("auth", "login")(LoginForm);
