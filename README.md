@@ -36,6 +36,10 @@ We will specify the API you will be using to build your project, but the design,
 
 A starter scaffolding is provided here: [https://gitlab.com/kenzie-academy/se/fe/final-projects/assessment---kwitter-frontend](https://gitlab.com/kenzie-academy/se/fe/final-projects/assessment---kwitter-frontend)
 
+## Project Architecture
+
+[![./dependencygraph.svg](./dependencygraph.svg)](./dependencygraph.html)
+
 ## Submission
 
 For submission, you must include a link to the project repo, the deployed instance of your frontend project, and the deployed kwitter api backend.
