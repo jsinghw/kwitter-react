@@ -1,7 +1,7 @@
 {
   "name": "kwitter",
   "version": "0.1.0",
-  "homepage": "https://kenzie-academy.gitlab.io/assessment---kwitter-frontend",
+  "homepage": "https://kenzie-academy.gitlab.io/se/fe/final-projects/assessment---kwitter-frontend",
   "private": true,
   "dependencies": {
     "connected-react-router": "^6.5.2",
@@ -23,7 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:graph-html": "depcruise --exclude '^node_modules' --output-type dot src | dot -T svg > dependencygraph.html",
+    "build:graph-html": "depcruise --validate .dependency-cruiser.js --exclude '^node_modules' --output-type dot src | dot -T svg > dependencygraph.html",
     "build:graph-svg": "depcruise --exclude '^node_modules' --output-type dot src | dot -T svg > dependencygraph.svg"
   },
   "eslintConfig": {

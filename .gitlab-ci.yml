@@ -6,10 +6,13 @@ pages:
     - npm run build
     - rm -rf public
     - mv build public
+    - npm run build:graph-html
+    - npm run build:graph-svg
+    - mv dependencygraph.* public/
   artifacts:
     paths:
       - public
   only:
     - master
 variables:
-  PUBLIC_URL: "/assessment---kwitter-frontend"
+  PUBLIC_URL: "/se/fe/final-projects/assessment---kwitter-frontend"
