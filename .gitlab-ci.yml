@@ -6,8 +6,6 @@ pages:
     - npm run build
     - rm -rf public
     - mv build public
-    - npm run build:graph-html
-    - npm run build:graph-svg
     - mv dependencygraph.* public/
   artifacts:
     paths:
