@@ -6,7 +6,7 @@ pages:
     - npm run build
     - rm -rf public
     - mv build public
-    - mv dependencygraph.* public/
+    - mv dependencygraph.html public/
   artifacts:
     paths:
       - public
