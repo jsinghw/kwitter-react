@@ -1,7 +1,7 @@
 import React from "react";
-import { Menu} from "../components";
+import { Menu } from "../components";
 import { userIsAuthenticated } from "../HOCs";
-import  KweetCard  from "../components/KweetCard/KweetCard";
+import KweetCard from "../components/KweetCard/KweetCard";
 
 class Profile extends React.Component {
   render() {
