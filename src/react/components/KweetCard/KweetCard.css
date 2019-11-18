@@ -1,0 +1,14 @@
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile {
+    margin-right: 10px;
+}
+
+.button {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
