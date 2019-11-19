@@ -8,3 +8,7 @@
   justify-content: space-between;
   padding-top: 10px;
 }
+button,[type="danger"]{
+margin-right:25px
+}
+  
