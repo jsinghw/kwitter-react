@@ -4,7 +4,11 @@ import KweetCard from "./KweetCard/KweetCard";
 class KweetList extends React.Component {
     render() {
         return(
-            <KweetCard />
+            <React.Fragment>
+
+                <KweetCard />
+
+            </React.Fragment>
         )
     }
 }

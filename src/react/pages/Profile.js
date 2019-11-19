@@ -1,11 +1,11 @@
 import React from "react";
-import { Menu } from "../components";
+import {Menu} from "../components";
 import { userIsAuthenticated } from "../HOCs";
 import EditProfile from "../components/EditProfile/EditProfile";
 
 
 class Profile extends React.Component {
-  
+
 
   render() {
     return (
