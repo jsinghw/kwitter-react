@@ -1,9 +1,16 @@
 import React from "react";
+import { Route, Link } from "react-router-dom";
 
 class SignupForm extends React.Component {
+
     render() {
         return (
-            <p>This is the signup form</p>
+            <Route>
+            <Link to="/SignUp">
+            <button type="button">Sign up!</button>
+            </Link>
+            </Route>
+
         )
     }
 }
