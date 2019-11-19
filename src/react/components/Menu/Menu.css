@@ -5,7 +5,7 @@
   align-items: center;
   padding: 0 1em;
   border-radius: 0em;
-  text-shadow: 1px 1px #A6FFDC;
+  margin-bottom: 15px;
   
   
 }
@@ -22,5 +22,6 @@
   cursor: pointer;
 }
   h2{
-    margin-left: 35px ;
+    margin-left: 25px ;
   }
+
