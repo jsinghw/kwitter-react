@@ -1,10 +1,15 @@
 import React from "react"
-import SignUpForm from "../components/SignupForm"
 
 class Signup extends React.Component {
     render(){
         return(
-            <SignUpForm />
+            <React.Fragment>
+            <input type="username" placeholder="Enter Username"></input>
+            <input type="displayname" placeholder="Enter displayname"></input>
+            <input type="password" placeholder="Password"></input>
+            <input type="password" placeholder="Confirm Password"></input>
+            <button type="Confirm">Sign Up Now!</button>
+            </React.Fragment>
         )
     }
 }
