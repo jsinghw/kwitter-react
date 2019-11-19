@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from ".";
+import { Link } from "..";
 import "./Menu.css";
-import { withAsyncAction } from "../HOCs";
+import { withAsyncAction } from "../../HOCs";
 
 class Menu extends React.Component {
   handleLogout = event => {
@@ -15,7 +15,9 @@ class Menu extends React.Component {
         <h1>Kwitter</h1>
         {this.props.isAuthenticated && (
           <div id="menu-links">
-            <Link to="/messagefeed">Message Feed</Link>
+            <Link to="/kweetfeed">Kweet Feed</Link>
+            <Link to="/profile/:username">Profile</Link>
+            <Link to="/messages">Messages</Link>
             <Link to="/" onClick={this.handleLogout}>
               Logout
             </Link>
@@ -25,5 +27,6 @@ class Menu extends React.Component {
     );
   }
 }
+      
 
 export default withAsyncAction("auth", "logout")(Menu);

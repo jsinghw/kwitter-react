@@ -1,5 +1,5 @@
 import React from "react"
-import UserMessages from "./UserMessages";
+import UserMessages from "./Messages/UserMessages";
 
 class MessageList extends React.Component {
     render() {
