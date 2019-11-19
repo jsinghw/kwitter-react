@@ -1,10 +1,13 @@
 #menu {
-  background-color: lightskyblue;
+  background-color: #00356B;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1em;
-  border-radius: 1em;
+  border-radius: 0em;
+  text-shadow: 1px 1px #A6FFDC;
+  
+  
 }
 
 #menu-links {
@@ -14,7 +17,10 @@
 
 #menu-links a {
   padding-right: 0.5em;
-  color: darkblue;
+  color: #A6FFDC;
   text-decoration: underline;
   cursor: pointer;
 }
+  h2{
+    margin-left: 35px ;
+  }

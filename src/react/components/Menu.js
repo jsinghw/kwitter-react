@@ -25,5 +25,6 @@ class Menu extends React.Component {
     );
   }
 }
+      
 
 export default withAsyncAction("auth", "logout")(Menu);
