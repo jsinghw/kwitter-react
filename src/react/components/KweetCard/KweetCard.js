@@ -14,7 +14,7 @@ class KweetCard extends React.Component {
             <Avatar className="profile" shape="circle" size={64} icon="user" />
             <span style={{textAlign: "center"}}>
               <br />
-              Profile Name
+              {" "}
             </span>
           </span>
           <TextArea rows={4} placeholder="What's happening?" />{" "}
