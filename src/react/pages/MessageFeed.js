@@ -1,13 +1,13 @@
 import React from "react";
 import Menu from "../components/Menu";
-import KweetList from "../components/KweetList";
+import MessageList from "../components/MessageList";
 
 class MessageFeed extends React.Component {
     render() {
         return (
             <>
                 <Menu />
-                <KweetList />
+                <MessageList />
             </>
         )
     }
