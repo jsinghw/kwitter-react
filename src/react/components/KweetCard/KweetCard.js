@@ -8,21 +8,27 @@ const { TextArea } = Input;
 class KweetCard extends React.Component {
   render() {
     return (
-      <Card>
-        <div className="row">
-          <span>
-            <Avatar className="profile" shape="circle" size={64} icon="user" />
-            <span style={{textAlign: "center"}}>
-              <br />
-              {" "}
+      <div className="container1">
+        <Card className="card">
+          <div className="row">
+            <span>
+              <Avatar
+                className="profile"
+                shape="circle"
+                size={64}
+                icon="user"
+              />
+              <span style={{ textAlign: "center" }}>
+                <br />{" "}
+              </span>
             </span>
-          </span>
-          <TextArea rows={4} placeholder="What's happening?" />{" "}
-        </div>
-        <div className="button">
-          <Button type="primary">Kweet</Button>
-        </div>
-      </Card>
+            <TextArea rows={4} placeholder="What's happening?" />{" "}
+          </div>
+          <div className="button">
+            <Button type="primary">Kweet</Button>
+          </div>
+        </Card>
+      </div>
     );
   }
 }
