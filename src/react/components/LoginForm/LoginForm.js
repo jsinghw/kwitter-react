@@ -1,6 +1,6 @@
 import React from "react";
-import { Spinner } from ".";
-import { withAsyncAction } from "../HOCs";
+import { Spinner } from "..";
+import { withAsyncAction } from "../../HOCs";
 import "./LoginForm.css";
 
 class LoginForm extends React.Component {

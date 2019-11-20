@@ -1,0 +1,16 @@
+.p1 {
+  padding-left: 20px;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container1 {
+  margin: 0 20px 20px 20px;
+}
+
+.card {
+  border-radius: 5px;
+}
