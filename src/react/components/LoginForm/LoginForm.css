@@ -11,10 +11,12 @@ border-radius: 5px;
 }
 button[type="submit"]{
   margin-top:15px;
+  max-width: 250px;
   border: #A6FFDC;
   border-radius: 10px;
   background: #00356B ;
   color: #A6FFDC;
+  margin-left: 15px;
 
 }
 button:hover{ margin-top:15px;
