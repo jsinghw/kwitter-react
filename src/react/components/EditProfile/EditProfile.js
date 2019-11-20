@@ -9,33 +9,32 @@ const { TextArea } = Input;
 class EditProfile extends React.Component {
   render() {
     return (
-      <Card>
-        <span>
-          <ImageUpload />
-          <div style={{ textAlign: "center" }}>
-            <br />{" "}
+      <div className="container1">
+        <Card className="card">
+          <span>
+            <ImageUpload />
+            <div style={{ textAlign: "center" }}>
+              <br />{" "}
+            </div>
+          </span>
+          <Input placeholder="Name" /> <br />
+          <br />
+          <TextArea rows={4} placeholder="Bio" /> <br />
+          <br />
+          <Input placeholder="Location" />{" "}
+          <div className="row container">
+              <Button className="button insideButton" type="danger" ghost>
+                Delete Profile
+              </Button>
+              <Button className="button insideButton" type="primary" ghost>
+                Update
+              </Button>
           </div>
-        </span>
-        <Input placeholder="Name" /> <br />
-        <br />
-        <TextArea rows={4} placeholder="Bio" /> <br />
-        <br />
-        <Input placeholder="Location" />{" "}
-        <span className="row container">
-          <div className="danger">
-            <Button type="danger" ghost>
-              Delete Profile
-            </Button>
-          </div>
-          <div className="button">
-            <Button type="primary" ghost>
-              Update
-            </Button>
-          </div>
-        </span>
-      </Card>
+        </Card>
+      </div>
     );
   }
 }
 
 export default EditProfile;
+

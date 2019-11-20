@@ -8,3 +8,19 @@
   justify-content: space-between;
   padding-top: 10px;
 }
+
+.container1 {
+  margin: 0 20px 20px 20px;
+}
+
+.card {
+  border-radius: 5px;
+}
+
+.button {
+  margin-left: 0;
+}
+
+.insideButton {
+  padding: 0 15px;
+}
