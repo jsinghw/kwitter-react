@@ -3,11 +3,14 @@ import Profile from "./Profile";
 import NotFound from "./NotFound";
 import Signup from "./Signup";
 import KweetFeed from "./KweetFeed";
+import MessageFeed from "./MessageFeed"
+
 
 export default {
   Home: { path: "/", component: Home },
   Profile: { path: "/profile/:username", component: Profile },
   Signup: {path: "/signup", component: Signup},
-  KweetFeed: {path: "/kweetfeed/:username", component: KweetFeed},
+  KweetFeed: {path: "/kweetfeed", component: KweetFeed},
+  MessageFeed: {path:"/messages", component:MessageFeed},
   NotFound: { path: "*", component: NotFound },
 };

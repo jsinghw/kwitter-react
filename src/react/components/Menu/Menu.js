@@ -17,6 +17,7 @@ class Menu extends React.Component {
           <div id="menu-links">
             <Link to="/messagefeed">Kweet Feed</Link>
             <Link to="/profile/:username">Profile</Link>
+            <Link to="/messages">Messages</Link>
             <Link to="/" onClick={this.handleLogout}>
               Logout
             </Link>

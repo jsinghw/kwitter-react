@@ -1,16 +1,16 @@
 import React from "react";
-import { Menu,KweetList } from "../components";
+import { Menu , MessageList }from "../components";
 import { userIsAuthenticated } from "../HOCs";
 
-class KweetFeed extends React.Component {
+class MessageFeed extends React.Component {
     render() {
         return (
             <>
                 <Menu isAuthenticated={this.props.isAuthenticated} />
-                <KweetList />
+                <MessageList />
             </>
         )
     }
 }
 
-export default userIsAuthenticated(KweetFeed)
+export default userIsAuthenticated(MessageFeed);
