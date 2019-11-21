@@ -1,19 +1,19 @@
 import React from "react";
-import { Card, Button, Avatar } from "antd";
+import { Avatar } from "antd";
 import "antd/dist/antd.css";
 import EditProfile from "./EditProfile/EditProfile";
 
-const user = {
-  user: {
-    pictureLocation: null,
-    username: "testuser",
-    displayName: "testuser",
-    about: "",
-    googleId: null,
-    createdAt: "2019-11-18T15:10:16.100Z",
-    updatedAt: "2019-11-18T15:10:16.100Z"
-  }
-};
+// const user = {
+//   user: {
+//     pictureLocation: null,
+//     username: "testuser",
+//     displayName: "testuser",
+//     about: "",
+//     googleId: null,
+//     createdAt: "2019-11-18T15:10:16.100Z",
+//     updatedAt: "2019-11-18T15:10:16.100Z"
+//   }
+// };
 class UserProfile extends React.Component {
   render() {
     return (
