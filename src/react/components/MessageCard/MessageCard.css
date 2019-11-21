@@ -1,0 +1,32 @@
+#individualMessage{
+    margin-left: 400px;
+}
+
+.messageFrom {
+    padding: 2em;
+    text-align: left;
+}
+
+.messageFrom span { 
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 0.5em;
+    margin-left: 0.4em;
+}
+
+.messageTo {
+    padding: 2em;
+    text-align: right;
+}
+
+.messageTo span {
+    color: white;
+    background-color: #00356B;
+    border-radius: 5px;
+    padding: 0.5em;
+}
+
+footer {
+    border-top: 1px solid lightgray;
+    padding: 0.5em;
+}
