@@ -17,7 +17,7 @@ button[type="submit"]{
   background: #00356B ;
   color: #A6FFDC;
   margin-left: 15px;
-
+  transition-duration: .5s;
 }
 button:hover{ margin-top:15px;
   border: #A6FFDC;
@@ -31,6 +31,7 @@ a,button,[type="button"]{
   border-radius: 10px;
   margin-left: 180px;
   margin-top: 10px;
+  transition-duration: .5s;
 
 
 
