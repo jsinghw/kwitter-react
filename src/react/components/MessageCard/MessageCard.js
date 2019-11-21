@@ -8,7 +8,6 @@ class MessageCard extends React.Component {
     render() {
         return(
             <Card id="individualMessage" size="default" style={{width:"500px"}} title="Message with testing-account">
-                <Icon type="delete" />
                 <div className="messageFrom">
                     <Avatar id="userAvatar" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
                     <div>Lorem ipsum dolor amet bicycle rights YOLO craft beer, hashtag plaid pug asymmetrical activated charcoal. Jianbing vape venmo, subway tile la croix small batch typewriter. </div>
@@ -19,7 +18,7 @@ class MessageCard extends React.Component {
                     <p>Nov 21, 2019, 12:10 PM</p>
                 </div>
                 <footer>
-                    <TextArea rows={1} style={{width:"300px"}}placeholder="Send new message" />
+                    <TextArea rows={1} style={{width:"400px", padding: ".5em"}}placeholder="Send new message" />
                     <Icon style={{padding:"0.5em"}} type="mail" />
                 </footer>
                 
