@@ -4,14 +4,16 @@
 
 .messageFrom {
     padding: 2em;
-    text-align: left;
 }
 
-.messageFrom span { 
+.messageFrom #userAvatar {
+    background-color: white;
+    margin: 0.5em;
+}
+.messageFrom div { 
     background-color: lightgray;
     border-radius: 5px;
-    padding: 0.5em;
-    margin-left: 0.4em;
+    padding: 0.15em;
 }
 
 .messageTo {
@@ -19,14 +21,13 @@
     text-align: right;
 }
 
-.messageTo span {
+.messageTo div {
     color: white;
     background-color: #00356B;
     border-radius: 5px;
-    padding: 0.5em;
+    padding: 0.15em;
 }
 
 footer {
     border-top: 1px solid lightgray;
-    padding: 0.5em;
 }

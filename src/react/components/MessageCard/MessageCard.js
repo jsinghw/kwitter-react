@@ -10,12 +10,12 @@ class MessageCard extends React.Component {
             <Card id="individualMessage" size="default" style={{width:"500px"}} title="Message with testing-account">
                 <Icon type="delete" />
                 <div className="messageFrom">
-                    <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                    <span>Lorem ipsum dolor amet bicycle rights YOLO craft beer, hashtag plaid pug asymmetrical activated charcoal. Jianbing vape venmo, subway tile la croix small batch typewriter. </span>
+                    <Avatar id="userAvatar" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                    <div>Lorem ipsum dolor amet bicycle rights YOLO craft beer, hashtag plaid pug asymmetrical activated charcoal. Jianbing vape venmo, subway tile la croix small batch typewriter. </div>
                     <p>Nov 21, 2019, 11:26 AM</p>
                 </div>
                 <div className="messageTo">
-                    <span>Enamel pin snackwave godard cred vexillologist, single-origin coffee brooklyn hell of fixie letterpress etsy stumptown asymmetrical keffiyeh cray.</span>
+                    <div>Enamel pin snackwave godard cred vexillologist, single-origin coffee brooklyn hell of fixie letterpress etsy stumptown asymmetrical keffiyeh cray.</div>
                     <p>Nov 21, 2019, 12:10 PM</p>
                 </div>
                 <footer>
