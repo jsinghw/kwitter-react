@@ -1,16 +1,17 @@
-import React from "react"
+import React from "react";
 import KweetCard from "./KweetCard/KweetCard";
+import Kweets from "./Kweets/Kweets";
 
 class KweetList extends React.Component {
-    render() {
-        return(
-            <React.Fragment>
+  render() {
+    return (
+      <React.Fragment>
+        <KweetCard />
 
-                <KweetCard />
-
-            </React.Fragment>
-        )
-    }
+        <Kweets />
+      </React.Fragment>
+    );
+  }
 }
 
-export default KweetList
+export default KweetList;
