@@ -22,18 +22,14 @@ class EditProfile extends React.Component {
           <TextArea rows={4} placeholder="Bio" /> <br />
           <br />
           <Input placeholder="Location" />{" "}
-          <span className="row container">
-            <div className="danger">
-              <Button type="danger" ghost>
+          <div className="row container">
+              <Button className="button insideButton" type="danger" ghost>
                 Delete Profile
               </Button>
-            </div>
-            <div>
-              <Button type="primary" ghost>
+              <Button className="button insideButton" type="primary" ghost>
                 Update
               </Button>
-            </div>
-          </span>
+          </div>
         </Card>
       </div>
     );
@@ -41,3 +37,4 @@ class EditProfile extends React.Component {
 }
 
 export default EditProfile;
+

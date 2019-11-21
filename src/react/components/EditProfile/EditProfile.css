@@ -16,3 +16,11 @@
 .card {
   border-radius: 5px;
 }
+
+.button {
+  margin-left: 0;
+}
+
+.insideButton {
+  padding: 0 15px;
+}
