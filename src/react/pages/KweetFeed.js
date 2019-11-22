@@ -7,7 +7,7 @@ class KweetFeed extends React.Component {
         return (
             <>
                 <Menu isAuthenticated={this.props.isAuthenticated} />
-                <KweetList />
+                <KweetList className ="pages"/>
             </>
         )
     }

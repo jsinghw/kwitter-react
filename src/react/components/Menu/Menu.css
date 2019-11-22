@@ -1,27 +1,56 @@
 #menu {
+  height: 100%;
+  width: 100px;
+  position: fixed;
+  flex-direction: column;
+  /* z-index: 1; */
+  top: 0;
+  left: 0;
   background-color: #00356B;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1em;
-  border-radius: 0em;
-  margin-bottom: 15px;
-  
-  
+  text-align: center;
+  float: left;
+  /* overflow-x: hidden; */
 }
 
 #menu-links {
+  height: 85%;
+  padding-top: 50px;
+}
+
+#menu-links a.active {
   display: flex;
-  padding-left: 1em;
+  flex-direction: column;
+
 }
 
 #menu-links a {
-  padding-right: 0.5em;
   color: #A6FFDC;
   text-decoration: underline;
   cursor: pointer;
+  font-size: 40px;
 }
-  h2{
-    margin-left: 25px ;
-  }
 
+#sideBarLinkLogOutContainer {
+  height: 100%;
+  width: 100%;
+}
+
+#sideBarLinkLogOutContainer :hover {
+  background-color: rednpm;
+}
+
+
+#sideBarLinkLogOut {
+  color: #A6FFDC;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 40px;
+  padding-top: 15px;
+}
+
+.sideBarLink {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 15px;
+}
