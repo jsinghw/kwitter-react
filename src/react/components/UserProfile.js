@@ -1,28 +1,49 @@
 import React from "react";
 import { Avatar } from "antd";
 import "antd/dist/antd.css";
+import "./UserProfile.css";
 import EditProfile from "./EditProfile/EditProfile";
+import { withAsyncAction } from "../HOCs"
+import { Spinner } from ".";
 
-// const user = {
-//   user: {
-//     pictureLocation: null,
-//     username: "testuser",
-//     displayName: "testuser",
-//     about: "",
-//     googleId: null,
-//     createdAt: "2019-11-18T15:10:16.100Z",
-//     updatedAt: "2019-11-18T15:10:16.100Z"
-//   }
-// };
+
 class UserProfile extends React.Component {
+  componentDidMount(){
+    this.props.getProfile("testchick");
+  };
+
   render() {
+    if (this.props.result === null){
+      return <Spinner className="spinner" name="circle" color="blue"/>
+    }
+    const profile = this.props.result.user;
     return (
       <React.Fragment>
-        <Avatar className="profile" shape="circle" size={100} icon="user" />
-        <EditProfile/>
+        <span className="Wrapper">
+          <span className="headerWrapper">
+            <Avatar className="profile" shape="circle" size={100} icon={profile.pictureLocation?profile.pictureLocation :"user"} />
+            <span className="profileHeader">{profile.displayName}</span>
+            <EditProfile /> 
+          </span>
+          <span className="contentWrapper">
+            <span>User Name: <span>{profile.username}</span></span>
+            <span>Account Created: {new Date(profile.createdAt).toDateString()}</span>
+          </span>
+            <span>About: {profile.about ? profile.about : "You do not have an about setup"}</span>
+        </span>
       </React.Fragment>
     );
   }
 }
 
-export default UserProfile;
+//mapStateToProps
+//loading
+//error
+//result
+
+//mapDispatchToProps
+//login
+//
+
+
+export default withAsyncAction("profile","getProfile")(UserProfile);
