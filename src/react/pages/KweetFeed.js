@@ -19,10 +19,10 @@ class KweetFeed extends React.Component {
         >
           <Menu isAuthenticated={this.props.isAuthenticated} />
         </Sider>
-        <Layout style={{ marginLeft: 200 }}>
-        <Content>
-          <KweetList className="pages" />
-        </Content>
+        <Layout style={{ marginLeft: 200 , marginTop: 20}}>
+          <Content>
+            <KweetList className="pages" />
+          </Content>
         </Layout>
       </Layout>
     )

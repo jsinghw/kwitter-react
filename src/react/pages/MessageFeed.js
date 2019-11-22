@@ -20,7 +20,7 @@ class MessageFeed extends React.Component {
           >
             <Menu isAuthenticated={this.props.isAuthenticated} />
           </Sider>
-          <Layout style={{ marginLeft: 200 }}>
+          <Layout style={{ marginLeft: 200, marginTop: 20}}>
             <Content style={{ marginLeft: 50}}>
               <MessageList />
             </Content>

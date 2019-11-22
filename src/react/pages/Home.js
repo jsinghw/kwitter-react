@@ -21,7 +21,6 @@ class Home extends React.Component {
         </Sider>
         <Layout style={{ marginLeft: 200 }}>
           <Content>
-            <Menu />
             <h2>Your favorite microblogging platform</h2>
             <LoginForm />
             <SignupForm />
