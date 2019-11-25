@@ -20,6 +20,7 @@ class MessageCard extends React.Component {
                 <footer>
                     <TextArea rows={1} style={{width:"400px", padding: ".5em"}}placeholder="Send new message" />
                     <Icon style={{padding:"0.5em"}} type="mail" />
+                    <Icon type="delete" />
                 </footer>
                 
             </Card>
