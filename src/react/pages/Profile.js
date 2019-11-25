@@ -1,20 +1,33 @@
-import React from "react";
-import { Menu, UserProfile } from "../components";
-import { userIsAuthenticated } from "../HOCs";
-import ListOfUsers from "../components/ListOfUsers/ListOfUsers";
+import React from "react"
+import { Menu, UserProfile } from "../components"
+import { userIsAuthenticated } from "../HOCs"
+import { Layout } from "antd"
+
+const { Content, Sider } = Layout
 
 class Profile extends React.Component {
   render() {
     return (
-      <>
-        <Menu isAuthenticated={this.props.isAuthenticated} />
-        <h2>Profile</h2>
-        <UserProfile/>
-        <br/>
-        <ListOfUsers />
-      </>
-    );
+      <Layout>
+        <Sider
+          style={{
+            overflow: "auto",
+            height: "100vh",
+            position: "fixed",
+            left: 0
+          }}
+        >
+          <Menu isAuthenticated={this.props.isAuthenticated} />
+        </Sider>
+        <Layout style={{ marginLeft: 200, marginTop: 20 }}>
+          <Content style={{ marginLeft: 50 }}>
+            <h2>Profile</h2>
+            <UserProfile />
+          </Content>
+        </Layout>
+      </Layout>
+    )
   }
 }
 
-export default userIsAuthenticated(Profile);
+export default userIsAuthenticated(Profile)
