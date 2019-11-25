@@ -1,7 +1,7 @@
 import React from "react";
 import { Menu, UserProfile } from "../components";
 import { userIsAuthenticated } from "../HOCs";
-// import ListOfUsers from "../components/ListOfUsers/ListOfUsers";
+import ListOfUsers from "../components/ListOfUsers/ListOfUsers";
 
 class Profile extends React.Component {
   render() {
@@ -10,7 +10,8 @@ class Profile extends React.Component {
         <Menu isAuthenticated={this.props.isAuthenticated} />
         <h2>Profile</h2>
         <UserProfile/>
-        {/* <ListOfUsers /> */}
+        <br/>
+        <ListOfUsers />
       </>
     );
   }
