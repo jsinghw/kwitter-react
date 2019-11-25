@@ -1,7 +1,7 @@
 import Home from "./Home";
 import Profile from "./Profile";
 import NotFound from "./NotFound";
-import Signup from "./Signup";
+import Signup from "../components/SignupForm/SignupForm";
 import KweetFeed from "./KweetFeed";
 import MessageFeed from "./MessageFeed"
 
