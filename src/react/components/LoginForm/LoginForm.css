@@ -2,4 +2,31 @@
   display: flex;
   flex-direction: column;
   max-width: 20em;
+  margin-left: 255px;
+  
+  
+}
+#lgoin-form,input{
+border-radius: 5px;
+}
+button[type="submit"]{
+  margin-top:15px;
+  border: #A6FFDC;
+  border-radius: 10px;
+  background: #00356B ;
+  color: #A6FFDC;
+
+}
+button:hover{ margin-top:15px;
+  border: #A6FFDC;
+  border-radius: 8px;
+  background:#335D89 ;
+  color:#42FFB5;
+}
+a,button,[type="button"]{
+  color: #00356B;
+  background: #42FFB5;
+  border-radius: 10px;
+  margin-left: 180px;
+  margin-top: 10px;
 }
