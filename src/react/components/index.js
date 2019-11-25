@@ -4,7 +4,7 @@ export { default as Menu } from "./Menu/Menu";
 export { default as SignupForm } from "./SignupForm";
 export { default as UserProfile } from "./UserProfile";
 export { default as KweetList } from "./KweetList";
-export { default as MessageList } from "./MessageList";
+export { default as MessageList } from "./MessageList/MessageList";
 export { default as MessageCard } from "./MessageCard/MessageCard"
 
 // components from other packages

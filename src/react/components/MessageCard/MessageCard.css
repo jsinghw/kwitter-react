@@ -1,5 +1,5 @@
 #individualMessage{
-    margin-left: 400px;
+    flex-basis: 40%;
 }
 
 .messageFrom {
