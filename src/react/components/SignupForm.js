@@ -7,7 +7,6 @@ class SignupForm extends React.Component {
         return (
             <Route>
             <Link to="/SignUp">
-                <br/>
             <button type="button">Sign up!</button>
             </Link>
             </Route>
