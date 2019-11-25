@@ -20,22 +20,24 @@ class LoginForm extends React.Component {
     return (
       <React.Fragment>
         <form id="login-form" onSubmit={this.handleLogin}>
-          <label htmlFor="username">Username</label>
+          <br/>
           <input
             type="text"
             name="username"
+            placeholder="Username"
             autoFocus
             required
             onChange={this.handleChange}
           />
-          <label htmlFor="password">Password</label>
+          <br/>
           <input
             type="password"
             name="password"
+            placeholder="Password"
             required
             onChange={this.handleChange}
           />
-          <button type="submit" disabled={loading}>
+          <button className="spacing" type="submit" disabled={loading}>
             Login
           </button>
         </form>

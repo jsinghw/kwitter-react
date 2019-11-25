@@ -31,7 +31,7 @@ const login = (
 ) => {
   switch (action.type) {
     case LOGOUT.SUCCESS:
-      return { ...initialState };
+      return { ...initialState }; // clearing out the user's token
     default:
       return state;
   }

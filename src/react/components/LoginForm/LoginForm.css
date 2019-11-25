@@ -6,7 +6,7 @@
   
   
 }
-#lgoin-form,input{
+#login-form,input{
 border-radius: 5px;
 }
 button[type="submit"]{
@@ -29,7 +29,4 @@ a,button,[type="button"]{
   border-radius: 10px;
   margin-left: 180px;
   margin-top: 10px;
-
-
-
 }
