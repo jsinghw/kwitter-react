@@ -6,13 +6,13 @@
   padding: 0 1em;
   border-radius: 0em;
   margin-bottom: 15px;
-  
-  
+  flex-basis: 20%;
 }
 
 #menu-links {
   display: flex;
   padding-left: 1em;
+  flex-direction: column;
 }
 
 #menu-links a {
