@@ -1,5 +1,5 @@
 import React from "react"
-import { Menu, MessageList } from "../components"
+import { Menu, MessageList, MessageCard } from "../components"
 import { userIsAuthenticated } from "../HOCs"
 import { Layout } from "antd"
 
@@ -23,6 +23,11 @@ class MessageFeed extends React.Component {
           <Layout style={{ marginLeft: 200, marginTop: 20}}>
             <Content style={{ marginLeft: 50}}>
               <MessageList />
+            </Content>
+          </Layout>
+          <Layout style={{marginTop: 20}}>
+            <Content style={{ marginLeft: 50}}>
+              <MessageCard />
             </Content>
           </Layout>
         </Layout>
