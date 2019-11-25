@@ -1,0 +1,29 @@
+
+.Wrapper{
+    display:flex;
+    flex-direction:column ;
+    justify-content: center;
+    border: 1px solid #000000;
+    size: 20px;
+    margin: 0px 300px 0px 300px;
+
+}
+.headerWrapper{
+    border:1px solid;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+.contentWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.profileHeader{
+    font-size: 32px;
+    
+}
+.spinner{
+    align-items:center;
+}
