@@ -17,19 +17,25 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
           onOk={onCreate}
         >
           <Form layout="vertical">
-            <Form.Item label="Username">
+            <Form.Item >
               {getFieldDecorator("title", {
                 rules: [{ required: true, message: "Please input a username!" }]
-              })(<Input />)}
+              })(<Input placeholder="Username" />)}
             </Form.Item>
-            <Form.Item label="Display Name">
-              {getFieldDecorator("display name")(<Input type="textarea" />)}
+            <Form.Item>
+              {getFieldDecorator("display name", {
+                rules: [{ required: true, message: "Please input a display name!" }]
+              })(<Input placeholder="Display Name" type="textarea" />)}
             </Form.Item>
-            <Form.Item label="Password">
-              {getFieldDecorator("password")(<Input type="password" />)}
+            <Form.Item>
+              {getFieldDecorator("password", {
+                rules: [{ required: true, message: "Please input a password!" }]
+              })(<Input placeholder="Password" type="password" />)}
             </Form.Item>
-            <Form.Item label="Confirm Password">
-              {getFieldDecorator("confirm password")(<Input type="password" />)}
+            <Form.Item>
+              {getFieldDecorator("confirm password", {
+                rules: [{ required: true, message: "Please confirm your password!" }]
+              })(<Input placeholder="Confirm Password" type="password" />)}
             </Form.Item>
           </Form>
         </Modal>
