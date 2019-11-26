@@ -19,18 +19,18 @@ class ListOfUsers extends React.Component {
       return (
         <div className="container1">
           <Card className="card">
-            <div className="row ">
-              <span>
+            <span className="row">
+              <div>
                 <Avatar
                   className="profile"
                   shape="circle"
                   size={64}
                   icon="user"
                 />
-                <span style={{ textAlign: "center" }}>
+                <div style={{ textAlign: "center" }}>
                   <br />{" "}
-                </span>
-              </span>
+                </div>
+              </div>
               <div className="row">
                 <h3 style={{ fontWeight: "bold" }}>{user.displayName}</h3>
               </div>
@@ -42,7 +42,7 @@ class ListOfUsers extends React.Component {
                     : "This user has not set up an about"}
                 </Paragraph>
               </div>
-            </div>
+            </span>
             <div className="button">
               <Button type="primary">Follow</Button>
             </div>
