@@ -7,9 +7,9 @@ import { withAsyncAction } from "../../HOCs";
 import { Spinner } from "..";
 
 class UserProfile extends React.Component {
-  componentDidMount() {
-    this.props.getProfile("testchick");
-  }
+  componentDidMount(){
+    this.props.getProfile(this.props.username);
+  };
 
   render() {
     if (this.props.result === null) {

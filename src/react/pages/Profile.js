@@ -22,7 +22,7 @@ class Profile extends React.Component {
         <Layout style={{ marginLeft: 200, marginTop: 20 }}>
           <Content style={{ marginLeft: 50 }}>
             <h2>Profile</h2>
-            <UserProfile />
+            <UserProfile username={this.props.match.params.username} />
             <br/>
             <ListOfUsers />
           </Content>
