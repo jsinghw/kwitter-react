@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom"
 import "./Menu.css"
 import { withAsyncAction } from "../../HOCs"
 import { Icon, Menu } from "antd"
+import {connect} from "react-redux"
 
 class SideMenu extends React.Component {
   handleLogout = event => {
@@ -48,14 +49,14 @@ class SideMenu extends React.Component {
           <Menu theme="dark" mode="inline">
             <Menu.Item key="1">
               <NavLink
-                to="/kweetfeed/:username"
+                to={"/Kweetfeed/" + this.props.username}
                 className="nav-text sideBarLink"
               >
                 <Icon type="home" /> Kweetfeed
               </NavLink>
             </Menu.Item>
             <Menu.Item key="2">
-              <NavLink to="/profile/:username" className="nav-text sideBarLink">
+              <NavLink to={"/profile/" + this.props.username} className="nav-text sideBarLink">
                 <Icon type="user" /> Profile
               </NavLink>
             </Menu.Item>
@@ -81,4 +82,9 @@ class SideMenu extends React.Component {
   }
 }
 
-export default withAsyncAction("auth", "logout")(SideMenu)
+const mapStateToProps = state => {
+  return {
+    username:state.auth.login.result.username
+  }
+}
+export default connect(mapStateToProps)(withAsyncAction("auth", "logout")(SideMenu))

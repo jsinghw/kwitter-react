@@ -9,7 +9,7 @@ import { Spinner } from "..";
 
 class UserProfile extends React.Component {
   componentDidMount(){
-    this.props.getProfile("testchick");
+    this.props.getProfile(this.props.username);
   };
 
   render() {
