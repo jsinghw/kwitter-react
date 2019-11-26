@@ -23,6 +23,7 @@ class Profile extends React.Component {
           <Content style={{ marginLeft: 50 }}>
             <h2>Profile</h2>
             <UserProfile />
+            <br/>
             <ListOfUsers />
           </Content>
         </Layout>
