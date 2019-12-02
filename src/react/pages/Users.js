@@ -1,11 +1,11 @@
 import React from "react"
-import { Menu, KweetList } from "../components"
+import { ListOfUsers, Menu } from "../components"
 import { userIsAuthenticated } from "../HOCs"
 import { Layout } from "antd"
 
 const { Content, Sider } = Layout
 
-class KweetFeed extends React.Component {
+class Users extends React.Component {
   render() {
     return (
       <Layout>
@@ -17,11 +17,11 @@ class KweetFeed extends React.Component {
             left: 0
           }}
         >
-          <Menu isAuthenticated={this.props.isAuthenticated} />
+              <Menu isAuthenticated={this.props.isAuthenticated} />
         </Sider>
-        <Layout style={{ marginLeft: 200 , marginTop: 20}}>
-          <Content>
-            <KweetList className="pages" />
+        <Layout style={{ marginLeft: 200, marginTop: 20 }}>
+          <Content style={{ marginLeft: 50 }}>
+              <ListOfUsers />
           </Content>
         </Layout>
       </Layout>
@@ -29,4 +29,4 @@ class KweetFeed extends React.Component {
   }
 }
 
-export default userIsAuthenticated(KweetFeed)
+export default userIsAuthenticated(Users)

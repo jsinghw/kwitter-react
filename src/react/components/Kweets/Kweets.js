@@ -126,7 +126,7 @@ class Kweets extends React.Component {
     ];
     
     return (
-      <div className="container1">
+      <div style={{ marginLeft: 20}} className="container1">
       <Card className="card">
         <div className="row">
       <Comment
