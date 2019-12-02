@@ -66,6 +66,11 @@ class SideMenu extends React.Component {
               </NavLink>
             </Menu.Item>
             <Menu.Item>
+              <NavLink to="/users" className="nav-text sideBarLink">
+              <Icon type="usergroup-add" /> Users
+              </NavLink>
+            </Menu.Item>
+            <Menu.Item>
               <NavLink
                 to="/"
                 className="nav-text sideBarLink"
