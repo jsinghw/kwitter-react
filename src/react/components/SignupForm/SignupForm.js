@@ -1,6 +1,6 @@
 import React from "react";
-import "./SignUp.css";
-import { Modal, Form, Input } from "antd";
+import "./SignupForm.css";
+import { Modal, Form, Input, Tooltip, Icon } from "antd";
 
 const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
   // eslint-disable-next-line
@@ -17,24 +17,38 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
           onOk={onCreate}
         >
           <Form layout="vertical">
-            <Form.Item >
+            <Form.Item label="Username, 3-20 characters">
               {getFieldDecorator("title", {
                 rules: [{ required: true, message: "Please input a username!" }]
-              })(<Input placeholder="Username, 3-20 characters" />)}
+              })(<Input placeholder="Username" />)}
             </Form.Item>
-            <Form.Item>
+            <Form.Item label={
+              <span>
+                Display Name, 3-20 characters&nbsp;
+                <Tooltip title="What do you want your name to appear as?">
+                  <Icon type="question-circle-o" />
+                </Tooltip>
+              </span> 
+            }>
               {getFieldDecorator("display name", {
                 rules: [{ required: true, message: "Please input a display name!" }]
-              })(<Input placeholder="Display Name, 3-20 characters" type="textarea" />)}
+              })(<Input placeholder="Display Name" type="textarea" />)}
             </Form.Item>
-            <Form.Item>
+            <Form.Item label="Password, 3-20 characters">
               {getFieldDecorator("password", {
-                rules: [{ required: true, message: "Please input a password!" }]
-              })(<Input placeholder="Password, 3-20 characters" type="password" />)}
+                rules: [
+                  { 
+                    required: true, message: "Please input a password!" },
+                ]
+              })(<Input placeholder="Password" type="password" />)}
             </Form.Item>
-            <Form.Item>
+            <Form.Item label="Confirm Password">
               {getFieldDecorator("confirm password", {
-                rules: [{ required: true, message: "Please confirm your password!" }]
+                rules: [
+                  { 
+                    required: true, message: "Please confirm your password!" 
+                  },
+                ]
               })(<Input placeholder="Confirm Password" type="password" />)}
             </Form.Item>
           </Form>
