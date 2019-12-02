@@ -20,17 +20,17 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
             <Form.Item >
               {getFieldDecorator("title", {
                 rules: [{ required: true, message: "Please input a username!" }]
-              })(<Input placeholder="Username" />)}
+              })(<Input placeholder="Username, 3-20 characters" />)}
             </Form.Item>
             <Form.Item>
               {getFieldDecorator("display name", {
                 rules: [{ required: true, message: "Please input a display name!" }]
-              })(<Input placeholder="Display Name" type="textarea" />)}
+              })(<Input placeholder="Display Name, 3-20 characters" type="textarea" />)}
             </Form.Item>
             <Form.Item>
               {getFieldDecorator("password", {
                 rules: [{ required: true, message: "Please input a password!" }]
-              })(<Input placeholder="Password" type="password" />)}
+              })(<Input placeholder="Password, 3-20 characters" type="password" />)}
             </Form.Item>
             <Form.Item>
               {getFieldDecorator("confirm password", {
