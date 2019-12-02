@@ -71,11 +71,9 @@ class SideMenu extends React.Component {
                 className="nav-text sideBarLink"
                 onClick={this.handleLogout}
               >
-                <div>
                 <Icon type="poweroff" />
                 Logout
-                </div>
-              </NavLink>
+                </NavLink>
             </Menu.Item>
           </Menu>
         )}
