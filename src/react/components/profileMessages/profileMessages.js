@@ -5,7 +5,7 @@ import { Spinner } from "..";
 
 const { Paragraph } = Typography;
 
-class ProfileMessages extends React.Component {
+class profileMessages extends React.Component {
   componentDidMount() {
     this.props.getUserMessages(this.props.username);
   }
@@ -55,4 +55,4 @@ class ProfileMessages extends React.Component {
 //fail
 //
 
-export default withAsyncAction("usermessages", "getUserMessages")(ProfileMessages);
+export default withAsyncAction("usermessages", "getUserMessages")(profileMessages);
