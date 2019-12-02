@@ -8,10 +8,10 @@ const { TextArea } = Input;
 class KweetCard extends React.Component {
   render() {
     return (
-      <div className="container1">
+      <div style={{ marginLeft: 20}} className="container1">
         <Card className="card">
           <div className="row">
-            <span>
+            <div>
               <Avatar
                 className="profile"
                 shape="circle"
@@ -21,7 +21,7 @@ class KweetCard extends React.Component {
               <span style={{ textAlign: "center" }}>
                 <br />{" "}
               </span>
-            </span>
+            </div>
             <TextArea rows={4} placeholder="What's happening?" />{" "}
           </div>
           <div className="button">

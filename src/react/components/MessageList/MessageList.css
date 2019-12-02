@@ -1,5 +1,5 @@
 span {
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     flex-basis: 40%;
 }

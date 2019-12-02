@@ -32,8 +32,8 @@ class EditProfile extends React.Component {
   render() {
     const { visible, loading } = this.state;
     return (
-      <div>
-        <Button type="primary" onClick={this.showModal}>
+      <div className="editProfile">
+        <Button  type="primary" onClick={this.showModal}>
           Edit Profile
         </Button>
         <Modal
