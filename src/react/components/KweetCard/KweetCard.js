@@ -9,6 +9,7 @@ class KweetCard extends React.Component {
   render() {
     return (
       <div style={{ marginLeft: 20}} className="container1">
+      <div><h1>Kweetfeed</h1></div>
         <Card className="card">
           <div className="row">
             <div>
