@@ -83,8 +83,10 @@ class SideMenu extends React.Component {
 }
 
 const mapStateToProps = state => {
+  if (state.auth && state.auth.login && state.auth.login.result && state.auth.login.result.username){
   return {
     username:state.auth.login.result.username
+    }
   }
 }
 export default connect(mapStateToProps)(withAsyncAction("auth", "logout")(SideMenu))
