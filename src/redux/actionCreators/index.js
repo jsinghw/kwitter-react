@@ -4,4 +4,4 @@ export * from "./messages";
 export * from "./likes";
 export * from "./getlistofusers";
 export * from "./profile";
-export * from "./createuser";
+export * from "./users";
