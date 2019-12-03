@@ -6,6 +6,9 @@ import { withAsyncAction } from "../../HOCs";
 const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
   // eslint-disable-next-line
   class extends React.Component {
+
+
+    
     render() {
       const { visible, onCancel, onCreate, form } = this.props;
       const { getFieldDecorator } = form;
@@ -19,7 +22,7 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
         >
           <Form layout="vertical">
             <Form.Item label="Username, 3-20 characters">
-              {getFieldDecorator("title", {
+              {getFieldDecorator("username", {
                 rules: [{ required: true, message: "Please input a username!" }]
               })(<Input placeholder="Username" />)}
             </Form.Item>
