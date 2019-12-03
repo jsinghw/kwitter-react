@@ -1,6 +1,7 @@
 import React from "react";
 import "./SignupForm.css";
 import { Modal, Form, Input, Tooltip, Icon } from "antd";
+import { withAsyncAction } from "../../HOCs";
 
 const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
   // eslint-disable-next-line
@@ -87,7 +88,7 @@ class Signup extends React.Component {
   saveFormRef = formRef => {
     this.formRef = formRef;
   };
-
+  
   render() {
     return (
       <div className="signUpButton">
@@ -105,4 +106,4 @@ class Signup extends React.Component {
   }
 }
 
-export default Signup;
+export default withAsyncAction("users", "createUser")(Signup);
