@@ -3,7 +3,7 @@ import { CREATEUSER } from "../actionTypes";
 
 const url = domain + "/users";
 
-export const createUser = () => (dispatch, getState) => {
+export const createUser = () => dispatch => {
     dispatch({
         type: CREATEUSER.START
     });
