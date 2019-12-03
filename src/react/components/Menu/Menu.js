@@ -78,7 +78,7 @@ class SideMenu extends React.Component {
               >
                 <Icon type="poweroff" />
                 Logout
-              </NavLink>
+                </NavLink>
             </Menu.Item>
           </Menu>
         )}
