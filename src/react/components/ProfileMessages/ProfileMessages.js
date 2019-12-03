@@ -55,4 +55,4 @@ class ProfileMessages extends React.Component {
 //fail
 //
 
-export default withAsyncAction("usermessages", "getUserMessages")(ProfileMessages);
+export default withAsyncAction("messages", "getUserMessages")(ProfileMessages);
