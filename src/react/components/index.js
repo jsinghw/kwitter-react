@@ -7,7 +7,7 @@ export { default as KweetList } from "./KweetList";
 export { default as MessageList } from "./MessageList/MessageList"
 export { default as ListOfUsers } from "./ListOfUsers/ListOfUsers"
 export { default as MessageCard } from "./MessageCard/MessageCard"
-export { default as ProfileMessages } from "./ProfileMessages/ProfileMessages"
+export { default as ProfileMessages } from "./ProfileMessages/profileMessages"
 
 
 
