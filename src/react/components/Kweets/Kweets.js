@@ -5,7 +5,6 @@ import "../KweetCard/KweetCard.css"
 import { withAsyncAction } from "../../HOCs";
 import {Spinner} from "..";
 import { NavLink } from "react-router-dom";
-import {domain} from "/Users/detrich/KENZIE/Kwitter/src/redux/actionCreators/constants/index.js"
 
 class Kweets extends React.Component {
   state = {

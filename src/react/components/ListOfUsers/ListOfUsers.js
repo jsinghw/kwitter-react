@@ -3,6 +3,7 @@ import { Avatar, Button, Card, Typography } from "antd";
 import "../ListOfUsers/ListOfUsers.css";
 import { withAsyncAction } from "../../HOCs";
 import { Spinner } from "..";
+import {NavLink} from "react-router-dom"
 
 const { Paragraph } = Typography;
 
@@ -21,21 +22,23 @@ class ListOfUsers extends React.Component {
           <Card className="card">
             <span className="row">
               <div>
+              <NavLink to={`/profile/${user.username}`} style={{marginLeft:0,}}>
                 <Avatar
                   className="profile"
                   shape="circle"
                   size={64}
                   icon="user"
                 />
+                </NavLink>
                 <div style={{ textAlign: "center" }}>
                   <br />{" "}
                 </div>
               </div>
               <div className="row">
-                <h3 style={{ fontWeight: "bold" }}>{user.displayName}</h3>
+                <h3 style={{ fontWeight: "bold" }}><NavLink to={`/profile/${user.username}`} style={{marginLeft:0,color:"black" }}>{user.displayName}</NavLink></h3>
               </div>
               <div className="p1">
-                <p>@{user.username}</p>
+                <p><NavLink to={`/profile/${user.username}`} style={{marginLeft:0, color: "black"}}>@{user.username}</NavLink></p>
                 <Paragraph ellipsis={{ rows: 2, expandable: false }}>
                   {user.about
                     ? user.about
