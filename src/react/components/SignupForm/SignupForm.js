@@ -6,6 +6,21 @@ import { withAsyncAction } from "../../HOCs";
 const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
   // eslint-disable-next-line
   class extends React.Component {
+
+    state = {
+      username: "",
+      displayName: "",  
+      password: ""
+    }
+
+    handleCreateUser = e => {
+      e.preventDefault();
+      this.props.createUser(this.state);
+    }
+
+    handleChange = e => {
+      this.setState({ [e.target.name]: e.target.value });
+    };
     
     render() {
       const { visible, onCancel, onCreate, form } = this.props;
@@ -63,9 +78,6 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
 class Signup extends React.Component {
   state = {
     visible: false,
-    username: "",
-    displayName: "",  
-    password: ""
   };
 
   showModal = () => {
@@ -83,17 +95,10 @@ class Signup extends React.Component {
         return;
       }
 
-      e.preventDefault();
-      this.props.createUser(this.state);
-
       console.log("Received values of form: ", values);
       form.resetFields();
       this.setState({ visible: false });
     });
-  };
-
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
   };
 
   saveFormRef = formRef => {
