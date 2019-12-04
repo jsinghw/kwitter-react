@@ -95,4 +95,4 @@ class Kweets extends React.Component {
   }
     )}}
 
-export default  withAsyncAction("usermessages", "getUserMessages")(Kweets);
+export default  withAsyncAction("messages", "getUserMessages")(Kweets);

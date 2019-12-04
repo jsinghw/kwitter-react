@@ -59,4 +59,4 @@ class ListOfUsers extends React.Component {
 //fail
 //
 
-export default withAsyncAction("listofusers", "getlistofusers")(ListOfUsers);
+export default withAsyncAction("users", "getlistofusers")(ListOfUsers);
