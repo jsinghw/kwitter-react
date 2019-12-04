@@ -1,15 +1,17 @@
 import React from "react";
 import ImageUpload from "./ImageUpload";
-import { Modal, Button, Input } from "antd";
+import { Modal, Button, Input, Form } from "antd";
 import "antd/dist/antd.css";
 import "./EditProfile.css";
+import withAsyncAction from "../../HOCs/withAsyncAction"
 
 const { TextArea } = Input;
 
 class EditProfile extends React.Component {
   state = {
     loading: false,
-    visible: false
+    visible: false,
+    about: "",
   };
 
   showModal = () => {
@@ -27,6 +29,15 @@ class EditProfile extends React.Component {
 
   handleCancel = () => {
     this.setState({ visible: false });
+  };
+
+  handleUpdate = e => {
+    e.preventDefault();
+    this.props.patchUser(this.state.about);
+  };
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
@@ -61,23 +72,25 @@ class EditProfile extends React.Component {
               <br />{" "}
             </div>
           </span>
-          <Input placeholder="Name" /> <br />
-          <br />
-          <TextArea rows={4} placeholder="Bio" /> <br />
-          <br />
-          <Input placeholder="Location" />{" "}
-          <div className="row container">
-            <Button className="insideButton" type="danger" ghost>
-              Delete Profile
-            </Button>
-            <Button className="insideButton" type="primary" ghost>
-              Update
-            </Button>
-          </div>
+          <Form>
+            <Input placeholder="Name" /> <br />
+            <br />
+            <TextArea rows={4} placeholder="Bio" name="about" /> <br />
+            <br />
+            <Input placeholder="Location" />{" "}
+            <div className="row container">
+             <Button className="insideButton" type="danger" ghost>
+                Delete Profile
+             </Button>
+             <Button className="insideButton" type="primary" htmlType="submit" ghost>
+                Update
+             </Button>
+            </div>
+          </Form>
         </Modal>
       </div>
     );
   }
 }
 
-export default EditProfile;
+export default withAsyncAction("users", "patchUser")(EditProfile);
