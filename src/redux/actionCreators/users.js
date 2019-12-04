@@ -1,6 +1,6 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
 import { CREATEUSER } from "../actionTypes";
-import { login } from "./auth";
+// import { login } from "./auth";
 
 const url = domain + "/users";
 

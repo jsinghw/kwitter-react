@@ -19,12 +19,12 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
           onOk={onCreate}
         >
           <Form layout="vertical">
-            <Form.Item label="Username, 3-20 characters">
+            <Form.Item name="username" label="Username, 3-20 characters">
               {getFieldDecorator("username", {
                 rules: [{ required: true, message: "Please input a username!" }]
               })(<Input placeholder="Username" />)}
             </Form.Item>
-            <Form.Item label={
+            <Form.Item name="displayName" label={
               <span>
                 Display Name, 3-20 characters&nbsp;
                 <Tooltip title="What do you want your name to appear as?">
@@ -36,7 +36,7 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
                 rules: [{ required: true, message: "Please input a display name!" }]
               })(<Input placeholder="Display Name" type="textarea" />)}
             </Form.Item>
-            <Form.Item label="Password, 3-20 characters">
+            <Form.Item name="password" label="Password, 3-20 characters">
               {getFieldDecorator("password", {
                 rules: [
                   { 
@@ -62,7 +62,10 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
 
 class Signup extends React.Component {
   state = {
-    visible: false
+    visible: false,
+    username: "",
+    displayName: "",  
+    password: ""
   };
 
   showModal = () => {
@@ -73,18 +76,24 @@ class Signup extends React.Component {
     this.setState({ visible: false });
   };
 
-  handleCreate = () => {
+  handleCreate = e => {
     const { form } = this.formRef.props;
     form.validateFields((err, values) => {
       if (err) {
         return;
       }
-      this.props.createUser(values)
+
+      e.preventDefault();
+      this.props.createUser(this.state);
 
       console.log("Received values of form: ", values);
       form.resetFields();
       this.setState({ visible: false });
     });
+  };
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   saveFormRef = formRef => {
