@@ -6,8 +6,6 @@ import { withAsyncAction } from "../../HOCs";
 const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
   // eslint-disable-next-line
   class extends React.Component {
-
-
     
     render() {
       const { visible, onCancel, onCreate, form } = this.props;
@@ -81,6 +79,7 @@ class Signup extends React.Component {
       if (err) {
         return;
       }
+      this.props.createUser(values)
 
       console.log("Received values of form: ", values);
       form.resetFields();

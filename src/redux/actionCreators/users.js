@@ -1,9 +1,10 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
 import { CREATEUSER } from "../actionTypes";
+import { login } from "./auth";
 
 const url = domain + "/users";
 
-export const createUser = registerData => dispatch => {
+export const createUser = values => dispatch => {
     dispatch({
         type: CREATEUSER.START
     });
@@ -11,7 +12,7 @@ export const createUser = registerData => dispatch => {
     return fetch(url, {
         method: "POST",
         headers: jsonHeaders,
-        body: JSON.stringify(registerData)
+        body: JSON.stringify(values)
     })
         .then(handleJsonResponse)
         .then(result => {
@@ -29,3 +30,14 @@ export const createUser = registerData => dispatch => {
             );
         });
 };
+
+// export const createUserThenLogin = registerData => dispatch => {
+//     return dispatch(createUser(registerData)).then(() => 
+//         dispatch(
+//             login({ 
+//                 username: registerData.username, 
+//                 password: registerData.password
+//             })
+//         )
+//     );
+// };
