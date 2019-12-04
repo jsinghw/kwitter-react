@@ -1,5 +1,5 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
-import { GETLISTOFUSERS, GETPROFILE } from "../actionTypes";
+import { GETLISTOFUSERS, GETPROFILE, PATCHUSER } from "../actionTypes";
 
 const url = domain + "/users";
 
@@ -42,5 +42,26 @@ export const getProfile = username => dispatch => {
     })
     .catch(err => {
       return Promise.reject(dispatch({ type: GETPROFILE.FAIL, payload: err }));
+    });
+};
+
+export const patchUser = username => dispatch => {
+  dispatch({
+    type: PATCHUSER.START
+  });
+
+  return fetch(url + "/" + username, {
+    method: "PATCH",
+    headers: jsonHeaders,
+  })
+    .then(handleJsonResponse)
+    .then(result => {
+      return dispatch({
+        type: PATCHUSER.SUCCESS,
+        payload: result
+      });
+    })
+    .catch(err => {
+      return Promise.reject(dispatch({ type: PATCHUSER.FAIL, payload: err }));
     });
 };

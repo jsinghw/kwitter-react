@@ -12,4 +12,5 @@ export const LOGOUT = createActionTypes("LOGOUT");
 export const GETLISTOFUSERS = createActionTypes("GETLISTOFUSERS");
 export const GETPROFILE = createActionTypes("GETPROFILE");
 export const GETUSERMESSAGES = createActionTypes("GETUSERMESSAGES")
+export const PATCHUSER = createActionTypes("PATCHUSER")
 
