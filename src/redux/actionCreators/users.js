@@ -45,14 +45,17 @@ export const getProfile = username => dispatch => {
     });
 };
 
-export const patchUser = username => dispatch => {
+export const patchUser = (userData, username) => (dispatch, getState) => {
   dispatch({
     type: PATCHUSER.START
   });
 
+  const token = getState().auth.login.result.token;
+
   return fetch(url + "/" + username, {
     method: "PATCH",
-    headers: jsonHeaders,
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders },
+    body: JSON.stringify(userData)
   })
     .then(handleJsonResponse)
     .then(result => {

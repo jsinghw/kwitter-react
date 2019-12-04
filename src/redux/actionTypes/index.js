@@ -7,10 +7,14 @@ const createActionTypes = actionName => {
   };
 };
 
+//Auth
 export const LOGIN = createActionTypes("LOGIN");
 export const LOGOUT = createActionTypes("LOGOUT");
+//Users
 export const GETLISTOFUSERS = createActionTypes("GETLISTOFUSERS");
 export const GETPROFILE = createActionTypes("GETPROFILE");
-export const GETUSERMESSAGES = createActionTypes("GETUSERMESSAGES")
-export const PATCHUSER = createActionTypes("PATCHUSER")
+export const PATCHUSER = createActionTypes("PATCHUSER");
+//Messages
+export const GETUSERMESSAGES = createActionTypes("GETUSERMESSAGES");
+
 
