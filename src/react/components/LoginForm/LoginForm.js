@@ -6,8 +6,8 @@ import "./LoginForm.css";
 class LoginForm extends React.Component {
   state = { username: "", password: "" };
 
-  handleLogin = e => {
-    e.preventDefault();
+  handleLogin = event => {
+    event.preventDefault();
     this.props.login(this.state);
   };
 
