@@ -8,7 +8,6 @@ export const createUser = values => dispatch => {
   dispatch({
     type: CREATEUSER.START
   });
-  console.log(JSON.stringify(values));
   return fetch(url, {
     method: "POST",
     headers: jsonHeaders,
