@@ -14,6 +14,7 @@ class SideMenu extends React.Component {
   render() {
     return (
       <React.Fragment>
+        
         <svg
           width="96px"
           height="101px"

@@ -17,7 +17,8 @@ class ListOfUsers extends React.Component {
     }
     const getUser = this.props.result.users;
     return getUser.map(user => {
-      return (
+     
+ return (
         <div className="container1">
           <Card className="card">
             <span className="row">
