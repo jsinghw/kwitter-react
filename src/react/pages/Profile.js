@@ -8,7 +8,6 @@ const { Content, Sider } = Layout;
 
 class Profile extends React.Component {
   render() {
-    console.log(this.props.match.params.username);
     return (
       <Layout>
         <Sider
@@ -24,10 +23,7 @@ class Profile extends React.Component {
         <Layout style={{ marginLeft: 200, marginTop: 20 }}>
           <Content style={{ marginLeft: 50 }}>
             <h2>Profile</h2>
-
-                <UserProfile username={this.props.match.params.username} />
-  
-
+            <UserProfile username={this.props.match.params.username} />
             <br />
             <ProfileMessages username={this.props.match.params.username} />
           </Content>
