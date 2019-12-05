@@ -70,6 +70,17 @@ class Signup extends React.Component {
     });
   };
 
+    // const { form } = this.formRef.props;
+    // form.validateFields((err, values) => {
+    //   if (err) {
+    //     return;
+    //   }
+
+    //   console.log("Received values of form: ", values);
+    //   form.resetFields();
+    //   this.setState({ visible: false });
+    // });
+
   saveFormRef = formRef => {
     this.formRef = formRef;
   };
@@ -88,7 +99,7 @@ class Signup extends React.Component {
         />
       </div>
     );
-  }
-}
+  };
+};
 
 export default Signup;
