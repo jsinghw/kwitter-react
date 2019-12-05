@@ -3,18 +3,12 @@ import "./SignupForm.css";
 import { Modal, Form, Input, Tooltip, Icon } from "antd";
 import { withAsyncAction } from "../../HOCs";
 
-    handleCreateUser = e => {
-      e.preventDefault();
-      this.props.createUser(this.state);
-    }
-
-    handleChange = e => {
-      this.setState({ [e.target.name]: e.target.value });
-    };
-
 class Signup extends React.Component {
   state = {
     visible: false,
+    username: "",
+    displayName: "",
+    password: ""
   };
 
   showModal = () => {
@@ -32,10 +26,18 @@ class Signup extends React.Component {
         return;
       }
 
+      e.preventDefault();
+      const { username, displayName, password } = this.state
+      this.props.createUser(username, displayName, password);
+
       console.log("Received values of form: ", values);
       form.resetFields();
       this.setState({ visible: false });
     });
+  };
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   saveFormRef = formRef => {
@@ -43,7 +45,7 @@ class Signup extends React.Component {
   };
   
   render() {
-    const { visible, onCancel, onCreate, form } = this.props;
+    const { visible, form } = this.props;
     const { getFieldDecorator } = form;
     return (
       <div className="signUpButton">
@@ -54,8 +56,8 @@ class Signup extends React.Component {
           visible={visible}
           title="Create a new account"
           okText="Create"
-          onCancel={handleCancel}
-          onOk={handleCreate}
+          onCancel={this.handleCancel}
+          onOk={this.handleCreate}
         >
           <Form layout="vertical">
             <Form.Item name="username" label="Username, 3-20 characters">
