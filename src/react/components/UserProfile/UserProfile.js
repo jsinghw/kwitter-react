@@ -62,4 +62,4 @@ class UserProfile extends React.Component {
 //login
 //
 
-export default withAsyncAction("profile", "getProfile")(UserProfile);
+export default withAsyncAction("users", "getProfile")(UserProfile);

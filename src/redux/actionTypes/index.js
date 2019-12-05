@@ -11,4 +11,5 @@ export const LOGIN = createActionTypes("LOGIN");
 export const LOGOUT = createActionTypes("LOGOUT");
 export const GETLISTOFUSERS = createActionTypes("GETLISTOFUSERS");
 export const GETPROFILE = createActionTypes("GETPROFILE");
+export const GETUSERMESSAGES = createActionTypes("GETUSERMESSAGES")
 

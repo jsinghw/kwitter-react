@@ -1,23 +1,22 @@
 import React from "react";
-import { Avatar, Button, Card, Typography } from "antd";
-import "../ListOfUsers/ListOfUsers.css";
+import { Avatar, Card, Typography } from "antd";
 import { withAsyncAction } from "../../HOCs";
 import { Spinner } from "..";
 
 const { Paragraph } = Typography;
 
-class ListOfUsers extends React.Component {
+class ProfileMessages extends React.Component {
   componentDidMount() {
-    this.props.getlistofusers();
+    this.props.getUserMessages(this.props.username);
   }
+  
   render() {
     if (this.props.result === null) {
       return <div><Spinner name="circle" color="blue" /></div>
     }
-    const getUser = this.props.result.users;
-    return getUser.map(user => {
-     
- return (
+    const getMessages = this.props.result.messages;
+    return getMessages.map(message => {
+      return (
         <div className="container1">
           <Card className="card">
             <span className="row">
@@ -27,26 +26,22 @@ class ListOfUsers extends React.Component {
                   shape="circle"
                   size={64}
                   icon="user"
-                  />
+                />
                 <div style={{ textAlign: "center" }}>
                   <br />{" "}
                 </div>
               </div>
               <div className="row">
-                <h3 style={{ fontWeight: "bold" }}>{user.displayName}</h3>
+                <h3 style={{ fontWeight: "bold" }}>{message.username}</h3>
               </div>
               <div className="p1">
-                <p>@{user.username}</p>
+                <p>@{message.username}</p>
                 <Paragraph ellipsis={{ rows: 2, expandable: false }}>
-                  {user.about
-                    ? user.about
-                    : "This user has not set up an about"}
+                  {message.text}
                 </Paragraph>
               </div>
             </span>
-            <div className="button">
-              <Button type="primary">Follow</Button>
-            </div>
+
           </Card>
         </div>
       );
@@ -60,4 +55,4 @@ class ListOfUsers extends React.Component {
 //fail
 //
 
-export default withAsyncAction("users", "getlistofusers")(ListOfUsers);
+export default withAsyncAction("messages", "getUserMessages")(ProfileMessages);
