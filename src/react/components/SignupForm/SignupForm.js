@@ -3,16 +3,6 @@ import "./SignupForm.css";
 import { Modal, Form, Input, Tooltip, Icon } from "antd";
 import { withAsyncAction } from "../../HOCs";
 
-const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
-  // eslint-disable-next-line
-  class extends React.Component {
-
-    state = {
-      username: "",
-      displayName: "",  
-      password: ""
-    }
-
     handleCreateUser = e => {
       e.preventDefault();
       this.props.createUser(this.state);
@@ -21,17 +11,51 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
     handleChange = e => {
       this.setState({ [e.target.name]: e.target.value });
     };
-    
-    render() {
-      const { visible, onCancel, onCreate, form } = this.props;
-      const { getFieldDecorator } = form;
-      return (
+
+class Signup extends React.Component {
+  state = {
+    visible: false,
+  };
+
+  showModal = () => {
+    this.setState({ visible: true });
+  };
+
+  handleCancel = () => {
+    this.setState({ visible: false });
+  };
+
+  handleCreate = e => {
+    const { form } = this.formRef.props;
+    form.validateFields((err, values) => {
+      if (err) {
+        return;
+      }
+
+      console.log("Received values of form: ", values);
+      form.resetFields();
+      this.setState({ visible: false });
+    });
+  };
+
+  saveFormRef = formRef => {
+    this.formRef = formRef;
+  };
+  
+  render() {
+    const { visible, onCancel, onCreate, form } = this.props;
+    const { getFieldDecorator } = form;
+    return (
+      <div className="signUpButton">
+        <button type="button" onClick={this.showModal}>
+          Sign up!
+        </button>
         <Modal
           visible={visible}
           title="Create a new account"
           okText="Create"
-          onCancel={onCancel}
-          onOk={onCreate}
+          onCancel={handleCancel}
+          onOk={handleCreate}
         >
           <Form layout="vertical">
             <Form.Item name="username" label="Username, 3-20 characters">
@@ -70,53 +94,6 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
             </Form.Item>
           </Form>
         </Modal>
-      );
-    }
-  }
-);
-
-class Signup extends React.Component {
-  state = {
-    visible: false,
-  };
-
-  showModal = () => {
-    this.setState({ visible: true });
-  };
-
-  handleCancel = () => {
-    this.setState({ visible: false });
-  };
-
-  handleCreate = e => {
-    const { form } = this.formRef.props;
-    form.validateFields((err, values) => {
-      if (err) {
-        return;
-      }
-
-      console.log("Received values of form: ", values);
-      form.resetFields();
-      this.setState({ visible: false });
-    });
-  };
-
-  saveFormRef = formRef => {
-    this.formRef = formRef;
-  };
-  
-  render() {
-    return (
-      <div className="signUpButton">
-        <button type="button" onClick={this.showModal}>
-          Sign up!
-        </button>
-        <CollectionCreateForm
-          wrappedComponentRef={this.saveFormRef}
-          visible={this.state.visible}
-          onCancel={this.handleCancel}
-          onCreate={this.handleCreate}
-        />
       </div>
     );
   }
