@@ -3,8 +3,7 @@ import moment from 'moment';
 import React from "react"
 import "../KweetCard/KweetCard.css"
 import { withAsyncAction } from "../../HOCs";
-import {Spinner} from "..";
-import { NavLink } from "react-router-dom";
+import {Spinner, Link} from "..";
 
 class Kweets extends React.Component {
   state = {
@@ -59,12 +58,12 @@ class Kweets extends React.Component {
         <div className="row">
       <Comment
         actions={actions}
-        author={<NavLink to={`/profile/${message.username}`} style={{marginLeft:0, }}>{message.username}</NavLink>}
+        author={<Link to={`/profile/${message.username}`} style={{marginLeft:0, }}>{message.username}</Link>}
         avatar={
-          <NavLink to={`/profile/${message.username}`} style={{marginLeft:0, }}><Avatar
+          <Link to={`/profile/${message.username}`} style={{marginLeft:0, }}><Avatar
             src={"https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"}
             alt="Han Solo"
-          /></NavLink>
+          /></Link>
         }
         content={
          message.text ? message.text : <p>
