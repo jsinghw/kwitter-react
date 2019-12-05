@@ -29,7 +29,7 @@ class UserProfile extends React.Component {
             <span>User Name: <span>{profile.username}</span></span>
             <span>Account Created: {new Date(profile.createdAt).toDateString()}</span>
           </span>
-            <span>About: {profile.about ? profile.about : "You do not have an about setup"}</span>
+            <span>About: {profile.about ? profile.about : "You do not have a Bio setup"}</span>
         </span>
       </React.Fragment>
     );
