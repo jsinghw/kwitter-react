@@ -5,37 +5,37 @@ import { CREATEUSER, GETLISTOFUSERS, GETPROFILE } from "../actionTypes";
 const url = domain + "/users";
 
 export const createUser = values => dispatch => {
-    dispatch({
-        type: CREATEUSER.START
-    });
+  dispatch({
+    type: CREATEUSER.START
+  });
 
-    return fetch(url, {
-        method: "POST",
-        headers: jsonHeaders,
-        body: JSON.stringify(values)
+  return fetch(url, {
+    method: "POST",
+    headers: jsonHeaders,
+    body: JSON.stringify(values)
+  })
+    .then(handleJsonResponse)
+    .then(result => {
+      return dispatch({
+        type: CREATEUSER.SUCCESS,
+        payload: result
+      });
     })
-        .then(handleJsonResponse)
-        .then(result => {
-            return dispatch({
-                type: CREATEUSER.SUCCESS,
-                payload: result
-            });
+    .catch(err => {
+      return Promise.reject(
+        dispatch({
+          type: CREATEUSER.FAIL,
+          payload: err
         })
-        .catch(err => {
-            return Promise.reject(
-                dispatch({
-                    type: CREATEUSER.FAIL,
-                    payload: err
-                })
-            );
-        });
+      );
+    });
 };
 
 // export const createUserThenLogin = registerData => dispatch => {
-//     return dispatch(createUser(registerData)).then(() => 
+//     return dispatch(createUser(registerData)).then(() =>
 //         dispatch(
-//             login({ 
-//                 username: registerData.username, 
+//             login({
+//                 username: registerData.username,
 //                 password: registerData.password
 //             })
 //         )
@@ -49,7 +49,7 @@ export const getlistofusers = () => dispatch => {
 
   return fetch(url + "?limit=7", {
     method: "GET",
-    headers: jsonHeaders,
+    headers: jsonHeaders
   })
     .then(handleJsonResponse)
     .then(result => {
@@ -59,7 +59,9 @@ export const getlistofusers = () => dispatch => {
       });
     })
     .catch(err => {
-      return Promise.reject(dispatch({ type: GETLISTOFUSERS.FAIL, payload: err }));
+      return Promise.reject(
+        dispatch({ type: GETLISTOFUSERS.FAIL, payload: err })
+      );
     });
 };
 
@@ -70,7 +72,7 @@ export const getProfile = username => dispatch => {
 
   return fetch(url + "/" + username, {
     method: "GET",
-    headers: jsonHeaders,
+    headers: jsonHeaders
   })
     .then(handleJsonResponse)
     .then(result => {
