@@ -32,7 +32,7 @@ const CollectionCreateForm = Form.create({
   const { getFieldDecorator } = props.form;
   return (
     <Modal
-      visible={this.state.visible}
+      visible={this.visible}
       title="Create a new account"
       okText="Create"
       onCancel={this.onCancel}
