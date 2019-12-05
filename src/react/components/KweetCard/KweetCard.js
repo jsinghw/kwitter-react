@@ -1,5 +1,5 @@
 import React from "react";
-import { Card,Input, Avatar } from "antd";
+import { Card,Input,Button, Avatar } from "antd";
 import "antd/dist/antd.css";
 import "./KweetCard.css";
 import { withAsyncAction } from "../../HOCs";
@@ -51,9 +51,9 @@ class KweetCard extends React.Component {
           
           </div>
           <div className="button">
-            <button type="submit">
+            <Button type="primary" htmlType="submit">
               Kweet
-            </button>
+            </Button>
           </div>
         </Card>
         </form>
