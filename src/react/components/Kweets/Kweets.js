@@ -4,6 +4,7 @@ import React from "react"
 import "../KweetCard/KweetCard.css"
 import { withAsyncAction } from "../../HOCs";
 import {Spinner} from "..";
+import { NavLink } from "react-router-dom";
 
 class Kweets extends React.Component {
   state = {
@@ -37,7 +38,7 @@ class Kweets extends React.Component {
     }
     const getMessages = this.props.result.messages;
     return getMessages.map(message => {
-    const { likes, dislikes, action } = this.state;
+    const { likes, action } = this.state;
 
     const actions = [
       <span key="comment-basic-like">
@@ -50,16 +51,6 @@ class Kweets extends React.Component {
         </Tooltip>
         <span style={{ paddingLeft: 8, cursor: 'auto' }}>{likes}</span>
       </span>,
-      <span key=' key="comment-basic-dislike"'>
-        <Tooltip title="Dislike">
-          <Icon
-            type="dislike"
-            theme={action === 'disliked' ? 'filled' : 'outlined'}
-            onClick={this.dislike}
-          />
-        </Tooltip>
-        <span style={{ paddingLeft: 8, cursor: 'auto' }}>{dislikes}</span>
-      </span>,
     ];
     
     return (
@@ -68,12 +59,12 @@ class Kweets extends React.Component {
         <div className="row">
       <Comment
         actions={actions}
-        author={message.username}
+        author={<NavLink to={`/profile/${message.username}`} style={{marginLeft:0, }}>{message.username}</NavLink>}
         avatar={
-          <Avatar
-            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+          <NavLink to={`/profile/${message.username}`} style={{marginLeft:0, }}><Avatar
+            src={"https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"}
             alt="Han Solo"
-          />
+          /></NavLink>
         }
         content={
          message.text ? message.text : <p>
