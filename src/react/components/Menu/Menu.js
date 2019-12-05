@@ -14,6 +14,7 @@ class SideMenu extends React.Component {
   render() {
     return (
       <React.Fragment>
+        
         <svg
           width="96px"
           height="101px"
@@ -60,11 +61,11 @@ class SideMenu extends React.Component {
                 <Icon type="user" /> Profile
               </NavLink>
             </Menu.Item>
-            <Menu.Item>
+            {/* <Menu.Item>
               <NavLink to="/messages" className="nav-text sideBarLink">
                 <Icon type="message" /> Messages
               </NavLink>
-            </Menu.Item>
+            </Menu.Item> */}
             <Menu.Item>
               <NavLink to="/users" className="nav-text sideBarLink">
               <Icon type="usergroup-add" /> Users

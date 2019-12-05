@@ -10,6 +10,11 @@ class UserProfile extends React.Component {
   componentDidMount(){
     this.props.getProfile(this.props.username);
   };
+  componentDidUpdate(prevProps){
+    if (this.props.username !== prevProps.username){
+      this.props.getProfile(this.props.username)
+    }
+  }
 
   render() {
     if (this.props.result === null) {
