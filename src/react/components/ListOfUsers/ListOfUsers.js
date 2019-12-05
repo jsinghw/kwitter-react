@@ -16,7 +16,8 @@ class ListOfUsers extends React.Component {
     }
     const getUser = this.props.result.users;
     return getUser.map(user => {
-      return (
+     
+ return (
         <div className="container1">
           <Card className="card">
             <span className="row">
@@ -26,7 +27,7 @@ class ListOfUsers extends React.Component {
                   shape="circle"
                   size={64}
                   icon="user"
-                />
+                  />
                 <div style={{ textAlign: "center" }}>
                   <br />{" "}
                 </div>
