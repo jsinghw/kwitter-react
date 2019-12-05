@@ -9,10 +9,6 @@
   padding-top: 10px;
 }
 
-.container1 {
-  margin: 0 20px 20px 20px;
-}
-
 .card {
   border-radius: 5px;
 }
@@ -20,4 +16,10 @@
 .insideButton {
   margin-left: 0;
   padding: 0 15px;
+}
+
+.editProfile {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 200px;
 }

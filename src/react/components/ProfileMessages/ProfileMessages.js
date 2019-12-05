@@ -1,55 +1,47 @@
 import React from "react";
-import { Avatar, Button, Card, Typography } from "antd";
-import "../ListOfUsers/ListOfUsers.css";
+import { Avatar, Card, Typography } from "antd";
 import { withAsyncAction } from "../../HOCs";
 import { Spinner } from "..";
-import {NavLink} from "react-router-dom"
 
 const { Paragraph } = Typography;
 
-class ListOfUsers extends React.Component {
+class ProfileMessages extends React.Component {
   componentDidMount() {
-    this.props.getlistofusers();
+    this.props.getUserMessages(this.props.username);
   }
+  
   render() {
     if (this.props.result === null) {
       return <div><Spinner name="circle" color="blue" /></div>
     }
-    const getUser = this.props.result.users;
-    return getUser.map(user => {
-     
- return (
+    const getMessages = this.props.result.messages;
+    return getMessages.map(message => {
+      return (
         <div className="container1">
           <Card className="card">
             <span className="row">
               <div>
-              <NavLink to={`/profile/${user.username}`} style={{marginLeft:0,}}>
                 <Avatar
                   className="profile"
                   shape="circle"
                   size={64}
                   icon="user"
                 />
-                </NavLink>
                 <div style={{ textAlign: "center" }}>
                   <br />{" "}
                 </div>
               </div>
               <div className="row">
-                <h3 style={{ fontWeight: "bold" }}><NavLink to={`/profile/${user.username}`} style={{marginLeft:0,color:"black" }}>{user.displayName}</NavLink></h3>
+                <h3 style={{ fontWeight: "bold" }}>{message.username}</h3>
               </div>
               <div className="p1">
-                <p><NavLink to={`/profile/${user.username}`} style={{marginLeft:0, color: "black"}}>@{user.username}</NavLink></p>
+                <p>@{message.username}</p>
                 <Paragraph ellipsis={{ rows: 2, expandable: false }}>
-                  {user.about
-                    ? user.about
-                    : "This user has not set up an about"}
+                  {message.text}
                 </Paragraph>
               </div>
             </span>
-            <div className="button">
-              <Button type="primary">Follow</Button>
-            </div>
+
           </Card>
         </div>
       );
@@ -63,4 +55,4 @@ class ListOfUsers extends React.Component {
 //fail
 //
 
-export default withAsyncAction("users", "getlistofusers")(ListOfUsers);
+export default withAsyncAction("messages", "getUserMessages")(ProfileMessages);

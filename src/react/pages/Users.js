@@ -1,11 +1,11 @@
 import React from "react"
-import { Menu, UserProfile, ProfileMessages } from "../components"
+import { ListOfUsers, Menu } from "../components"
 import { userIsAuthenticated } from "../HOCs"
 import { Layout } from "antd"
 
 const { Content, Sider } = Layout
 
-class Profile extends React.Component {
+class Users extends React.Component {
   render() {
     return (
       <Layout>
@@ -17,14 +17,11 @@ class Profile extends React.Component {
             left: 0
           }}
         >
-          <Menu isAuthenticated={this.props.isAuthenticated} />
+              <Menu isAuthenticated={this.props.isAuthenticated} />
         </Sider>
         <Layout style={{ marginLeft: 200, marginTop: 20 }}>
           <Content style={{ marginLeft: 50 }}>
-            <h2>Profile</h2>
-            <UserProfile username={this.props.match.params.username} />
-            <br/>
-            <ProfileMessages username ={this.props.match.params.username} />
+              <ListOfUsers />
           </Content>
         </Layout>
       </Layout>
@@ -32,4 +29,4 @@ class Profile extends React.Component {
   }
 }
 
-export default userIsAuthenticated(Profile)
+export default userIsAuthenticated(Users)

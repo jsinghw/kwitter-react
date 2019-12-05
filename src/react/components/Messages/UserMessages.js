@@ -47,7 +47,7 @@ class UserMessages extends React.Component {
     return users.map(user => {
       return (
         <React.Fragment>
-          <Card size="small" style={{ width: 300 }}>
+          <Card size="small" style={{ width: 300, margin: 5 }}>
             <Meta
               avatar={
                 user.pictureLocation ? (

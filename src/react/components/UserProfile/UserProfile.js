@@ -1,11 +1,10 @@
 import React from "react";
-import { Avatar } from "antd";
+import { Avatar, Card } from "antd";
 import "antd/dist/antd.css";
 import "./UserProfile.css";
 import EditProfile from "../EditProfile/EditProfile";
-import { withAsyncAction } from "../../HOCs"
+import { withAsyncAction } from "../../HOCs";
 import { Spinner } from "..";
-
 
 class UserProfile extends React.Component {
   componentDidMount(){
@@ -13,8 +12,8 @@ class UserProfile extends React.Component {
   };
 
   render() {
-    if (this.props.result === null){
-      return <Spinner className="spinner" name="circle" color="blue"/>
+    if (this.props.result === null) {
+      return <Spinner className="spinner" name="circle" color="blue" />;
     }
     const profile = this.props.result.user;
     return (
@@ -45,5 +44,4 @@ class UserProfile extends React.Component {
 //login
 //
 
-
-export default withAsyncAction("profile","getProfile")(UserProfile);
+export default withAsyncAction("users", "getProfile")(UserProfile);
