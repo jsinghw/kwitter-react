@@ -2,8 +2,8 @@ import React from "react";
 import { Avatar, Button, Card, Typography } from "antd";
 import "../ListOfUsers/ListOfUsers.css";
 import { withAsyncAction } from "../../HOCs";
-import { Spinner } from "..";
-import {NavLink} from "react-router-dom"
+import { Spinner ,Link } from "..";
+
 
 const { Paragraph } = Typography;
 
@@ -23,23 +23,23 @@ class ListOfUsers extends React.Component {
           <Card className="card">
             <span className="row">
               <div>
-              <NavLink to={`/profile/${user.username}`} style={{marginLeft:0,}}>
+              <Link to={`/profile/${user.username}`} style={{marginLeft:0,}}>
                 <Avatar
                   className="profile"
                   shape="circle"
                   size={64}
                   icon="user"
                 />
-                </NavLink>
+                </Link>
                 <div style={{ textAlign: "center" }}>
                   <br />{" "}
                 </div>
               </div>
               <div className="row">
-                <h3 style={{ fontWeight: "bold" }}><NavLink to={`/profile/${user.username}`} style={{marginLeft:0,color:"black" }}>{user.displayName}</NavLink></h3>
+                <h3 style={{ fontWeight: "bold" }}><Link to={`/profile/${user.username}`} style={{marginLeft:0,color:"black" }}>{user.displayName}</Link></h3>
               </div>
               <div className="p1">
-                <p><NavLink to={`/profile/${user.username}`} style={{marginLeft:0, color: "black"}}>@{user.username}</NavLink></p>
+                <p><Link to={`/profile/${user.username}`} style={{marginLeft:0, color: "black"}}>@{user.username}</Link></p>
                 <Paragraph ellipsis={{ rows: 2, expandable: false }}>
                   {user.about
                     ? user.about
