@@ -20,6 +20,7 @@ class UserProfile extends React.Component {
     if (this.props.result === null) {
       return <Spinner className="spinner" name="circle" color="blue" />;
     }
+    const username = JSON.parse(localStorage.login).result.username;
     const profile = this.props.result.user;
     return (
       <React.Fragment>
@@ -37,7 +38,7 @@ class UserProfile extends React.Component {
                 <span className="profileHeader">{profile.displayName}</span>
               </span>
             </div>
-            <EditProfile className="editProfile" />
+         { (username === profile.displayName) && <EditProfile className="editProfile" />}
             <hr />
             <span className="contentWrapper">
               <span>
