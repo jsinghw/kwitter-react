@@ -1,9 +1,10 @@
-import React from "react"
-import { Menu, UserProfile, ProfileMessages } from "../components"
-import { userIsAuthenticated } from "../HOCs"
-import { Layout } from "antd"
+import React from "react";
+import { Menu, UserProfile, ProfileMessages } from "../components";
+import { userIsAuthenticated } from "../HOCs";
+import { Layout } from "antd";
 
-const { Content, Sider } = Layout
+
+const { Content, Sider } = Layout;
 
 class Profile extends React.Component {
   render() {
@@ -23,13 +24,13 @@ class Profile extends React.Component {
           <Content style={{ marginLeft: 50 }}>
             <h2>Profile</h2>
             <UserProfile username={this.props.match.params.username} />
-            <br/>
-            <ProfileMessages username ={this.props.match.params.username} />
+            <br />
+            <ProfileMessages username={this.props.match.params.username} />
           </Content>
         </Layout>
       </Layout>
-    )
+    );
   }
 }
 
-export default userIsAuthenticated(Profile)
+export default   userIsAuthenticated(Profile);
