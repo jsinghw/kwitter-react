@@ -7,12 +7,12 @@ import { withAsyncAction } from "../../HOCs";
 import { Spinner } from "..";
 
 class UserProfile extends React.Component {
-  componentDidMount(){
+  componentDidMount() {
     this.props.getProfile(this.props.username);
-  };
-  componentDidUpdate(prevProps){
-    if (this.props.username !== prevProps.username){
-      this.props.getProfile(this.props.username)
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.username !== prevProps.username) {
+      this.props.getProfile(this.props.username);
     }
   }
 
@@ -41,15 +41,15 @@ class UserProfile extends React.Component {
             <hr />
             <span className="contentWrapper">
               <span>
-                User Name: <span>{profile.username}</span>
+                Display Name: <span>{profile.displayName}</span>
               </span>
               <span>
                 Account Created: {new Date(profile.createdAt).toDateString()}
               </span>
             </span>
             <span>
-              About:{" "}
-              {profile.about ? profile.about : "You do not have an about setup"}
+              About:
+              {profile.about ? profile.about : "You do not have a bio set up"}
             </span>
           </Card>
         </div>
