@@ -1,5 +1,11 @@
+import { push } from "react"
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
-import { CREATEUSER, GETLISTOFUSERS, GETPROFILE } from "../actionTypes";
+import {
+  CREATEUSER,
+  GETLISTOFUSERS,
+  GETPROFILE,
+  DELETEUSER
+} from "../actionTypes"
 // import { login } from "./auth";
 
 const url = domain + "/users";
@@ -26,8 +32,8 @@ export const createUser = values => dispatch => {
           type: CREATEUSER.FAIL,
           payload: err
         })
-      );
-    });
+      )
+    })
 };
 
 // export const createUserThenLogin = registerData => dispatch => {
@@ -84,3 +90,29 @@ export const getProfile = username => dispatch => {
       return Promise.reject(dispatch({ type: GETPROFILE.FAIL, payload: err }));
     });
 };
+
+
+export const deleteUser = () => (dispatch, getState) => {
+  dispatch({ type: DELETEUSER.START })
+
+  const { username, token } = getState().auth.login.result
+  
+
+  return fetch(url + "/" + username, {
+    method: "DELETE",
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders }
+  })
+    .then(handleJsonResponse)
+    .then(result => {
+      return dispatch({
+        type: DELETEUSER.SUCCESS,
+        payload: result
+      })
+    })
+    .then((response) =>{
+      dispatch(push("/"))
+    })
+    .catch(err => {
+      return Promise.reject(dispatch({ type: DELETEUSER.FAIL, payload: err }))
+    })
+}

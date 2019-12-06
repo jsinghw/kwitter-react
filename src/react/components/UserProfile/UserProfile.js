@@ -37,7 +37,7 @@ class UserProfile extends React.Component {
                 <span className="profileHeader">{profile.displayName}</span>
               </span>
             </div>
-            <EditProfile className="editProfile" />
+            <EditProfile className="editProfile" username={this.props.username} />
             <hr />
             <span className="contentWrapper">
               <span>
