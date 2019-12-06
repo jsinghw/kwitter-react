@@ -1,3 +1,5 @@
+import { create } from "domain";
+
 const createActionTypes = actionName => {
   const ACTIONNAME = actionName.toUpperCase();
   return {
@@ -14,6 +16,7 @@ export const LOGOUT = createActionTypes("LOGOUT");
 export const GETLISTOFUSERS = createActionTypes("GETLISTOFUSERS");
 export const GETPROFILE = createActionTypes("GETPROFILE");
 export const CREATEUSER = createActionTypes("CREATEUSER");
+export const PATCHUSER = createActionTypes("PATCHUSER");
 //Messages
 export const GETUSERMESSAGES = createActionTypes("GETUSERMESSAGES");
 export const POSTMESSAGES = createActionTypes("POSTMESSAGES");
