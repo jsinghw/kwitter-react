@@ -3,7 +3,7 @@ import { Avatar, Card } from "antd";
 import "antd/dist/antd.css";
 import "./UserProfile.css";
 import EditProfile from "../EditProfile/EditProfile";
-import { withAsyncAction} from "../../HOCs";
+import { withAsyncAction } from "../../HOCs";
 import { Spinner } from "..";
 
 class UserProfile extends React.Component {
