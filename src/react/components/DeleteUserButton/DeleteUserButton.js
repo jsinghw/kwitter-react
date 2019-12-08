@@ -16,7 +16,6 @@ class DeleteUserButton extends Button {
 
   render() {
     return (
-      this.props.username === this.props.loggedInUsername && (
         <Button
           onClick={this.handleDeleteUser}
           className="insideButton"
@@ -25,7 +24,6 @@ class DeleteUserButton extends Button {
         >
           Delete Your Profile
         </Button>
-      )
     )
   }
 }
