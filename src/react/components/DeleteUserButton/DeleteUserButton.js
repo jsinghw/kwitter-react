@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "react-router-dom"
 import { withAsyncAction, connect } from "../../HOCs"
 import { Button } from "antd"
 import "../EditProfile/EditProfile.css"
@@ -11,7 +10,7 @@ class DeleteUserButton extends Button {
     )
     if (confirmed) {
       this.props.deleteUser()
-      return <Link to='/' />
+      return this.props.logout()
     }
   }
 
@@ -36,7 +35,6 @@ const mapStateToProps = state => {
     loggedInUsername: state.auth.login.result.username
   }
 }
-export default connect(
-  mapStateToProps,
-  null
-)(withAsyncAction("users", "deleteUser")(DeleteUserButton))
+export default withAsyncAction("auth", "logout")(connect(
+  mapStateToProps
+)(withAsyncAction("users", "deleteUser")(DeleteUserButton)))

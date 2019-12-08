@@ -6,11 +6,11 @@ import {
   GETPROFILE,
   DELETEUSER
 } from "../actionTypes"
-// import { login } from "./auth";
+import { login } from "./auth";
 
 const url = domain + "/users";
 
-export const createUser = values => dispatch => {
+export const _createUser = values => dispatch => {
   dispatch({
     type: CREATEUSER.START
   });
@@ -36,16 +36,16 @@ export const createUser = values => dispatch => {
     })
 };
 
-// export const createUserThenLogin = registerData => dispatch => {
-//     return dispatch(createUser(registerData)).then(() =>
-//         dispatch(
-//             login({
-//                 username: registerData.username,
-//                 password: registerData.password
-//             })
-//         )
-//     );
-// };
+export const createUser = values => dispatch => {
+  return dispatch(_createUser(values)).then(() =>
+    dispatch(
+      login({
+        username: values.username,
+        password: values.password
+      })
+    )
+  );
+};
 
 export const getlistofusers = () => dispatch => {
   dispatch({
