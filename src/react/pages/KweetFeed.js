@@ -1,9 +1,9 @@
-import React from "react"
-import { Menu, KweetList } from "../components"
-import { userIsAuthenticated } from "../HOCs"
-import { Layout } from "antd"
+import React from "react";
+import { Menu, KweetList } from "../components";
+import { userIsAuthenticated } from "../HOCs";
+import { Layout } from "antd";
 
-const { Content, Sider } = Layout
+const { Content, Sider } = Layout;
 
 class KweetFeed extends React.Component {
   render() {
@@ -19,14 +19,14 @@ class KweetFeed extends React.Component {
         >
           <Menu isAuthenticated={this.props.isAuthenticated} />
         </Sider>
-        <Layout style={{ marginLeft: 200 , marginTop: 20}}>
+        <Layout style={{ marginLeft: 200, marginTop: 20 }}>
           <Content>
             <KweetList className="pages" />
           </Content>
         </Layout>
       </Layout>
-    )
+    );
   }
 }
 
-export default userIsAuthenticated(KweetFeed)
+export default userIsAuthenticated(KweetFeed);

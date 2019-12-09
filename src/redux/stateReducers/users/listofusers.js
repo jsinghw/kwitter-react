@@ -14,4 +14,4 @@ const getlistofusers = (state = initialState, action) => {
   }
 };
 
-export default withAsyncReducer(GETLISTOFUSERS,getlistofusers);
+export default withAsyncReducer(GETLISTOFUSERS, getlistofusers);

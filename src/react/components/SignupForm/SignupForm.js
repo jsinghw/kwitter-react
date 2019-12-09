@@ -123,7 +123,7 @@ class Signup extends React.Component {
         />
       </div>
     );
-  };
-};
+  }
+}
 
 export default withAsyncAction("users", "createUser")(Signup);

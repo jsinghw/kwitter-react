@@ -1,20 +1,19 @@
-import React from "react"
-import { NavLink } from "react-router-dom"
-import "./Menu.css"
-import { withAsyncAction } from "../../HOCs"
-import { Icon, Menu } from "antd"
-import {connect} from "react-redux"
+import React from "react";
+import { NavLink } from "react-router-dom";
+import "./Menu.css";
+import { withAsyncAction } from "../../HOCs";
+import { Icon, Menu } from "antd";
+import { connect } from "react-redux";
 
 class SideMenu extends React.Component {
   handleLogout = event => {
-    event.preventDefault()
-    this.props.logout()
-  }
+    event.preventDefault();
+    this.props.logout();
+  };
 
   render() {
     return (
       <React.Fragment>
-        
         <svg
           width="96px"
           height="101px"
@@ -57,7 +56,10 @@ class SideMenu extends React.Component {
               </NavLink>
             </Menu.Item>
             <Menu.Item key="2">
-              <NavLink to={"/profile/" + this.props.username} className="nav-text sideBarLink">
+              <NavLink
+                to={"/profile/" + this.props.username}
+                className="nav-text sideBarLink"
+              >
                 <Icon type="user" /> Profile
               </NavLink>
             </Menu.Item>
@@ -68,7 +70,7 @@ class SideMenu extends React.Component {
             </Menu.Item> */}
             <Menu.Item>
               <NavLink to="/users" className="nav-text sideBarLink">
-              <Icon type="usergroup-add" /> Users
+                <Icon type="usergroup-add" /> Users
               </NavLink>
             </Menu.Item>
             <Menu.Item>
@@ -79,20 +81,27 @@ class SideMenu extends React.Component {
               >
                 <Icon type="poweroff" />
                 Logout
-                </NavLink>
+              </NavLink>
             </Menu.Item>
           </Menu>
         )}
       </React.Fragment>
-    )
+    );
   }
 }
 
 const mapStateToProps = state => {
-  if (state.auth && state.auth.login && state.auth.login.result && state.auth.login.result.username){
-  return {
-    username:state.auth.login.result.username
-    }
+  if (
+    state.auth &&
+    state.auth.login &&
+    state.auth.login.result &&
+    state.auth.login.result.username
+  ) {
+    return {
+      username: state.auth.login.result.username
+    };
   }
-}
-export default connect(mapStateToProps)(withAsyncAction("auth", "logout")(SideMenu))
+};
+export default connect(mapStateToProps)(
+  withAsyncAction("auth", "logout")(SideMenu)
+);
