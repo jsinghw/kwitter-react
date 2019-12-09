@@ -3,7 +3,6 @@ import { Menu, UserProfile, ProfileMessages } from "../components";
 import { userIsAuthenticated } from "../HOCs";
 import { Layout } from "antd";
 
-
 const { Content, Sider } = Layout;
 
 class Profile extends React.Component {
@@ -33,4 +32,4 @@ class Profile extends React.Component {
   }
 }
 
-export default   userIsAuthenticated(Profile);
+export default userIsAuthenticated(Profile);

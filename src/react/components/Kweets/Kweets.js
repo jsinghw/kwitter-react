@@ -1,7 +1,7 @@
-import { Comment, Icon, Tooltip, Avatar,Card } from 'antd';
-import moment from 'moment';
-import React from "react"
-import "../KweetCard/KweetCard.css"
+import { Comment, Icon, Tooltip, Avatar, Card } from "antd";
+import moment from "moment";
+import React from "react";
+import "../KweetCard/KweetCard.css";
 import { withAsyncAction } from "../../HOCs";
 import {Spinner, Link, DeleteMessageButton} from "..";
 
@@ -10,14 +10,14 @@ class Kweets extends React.Component {
   state = {
     likes: 0,
     dislikes: 0,
-    action: null,
+    action: null
   };
 
   like = () => {
     this.setState({
       likes: 1,
       dislikes: 0,
-      action: 'liked',
+      action: "liked"
     });
   };
 
@@ -25,7 +25,7 @@ class Kweets extends React.Component {
     this.setState({
       likes: 0,
       dislikes: 1,
-      action: 'disliked',
+      action: "disliked"
     });
   };
   componentDidMount() {
@@ -34,7 +34,11 @@ class Kweets extends React.Component {
 
   render() {
     if (this.props.result === null) {
-      return <div><Spinner name="circle" color="blue" /></div>
+      return (
+        <div>
+          <Spinner name="circle" color="blue" />
+        </div>
+      );
     }
     const getMessages = this.props.result.messages;
     return getMessages.map(message => {
@@ -90,6 +94,6 @@ class Kweets extends React.Component {
       </div>
     );
   }
-    )}}
+}
 
-export default  withAsyncAction("messages", "getUserMessages")(Kweets);
+export default withAsyncAction("messages", "getUserMessages")(Kweets);

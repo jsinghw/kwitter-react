@@ -3,29 +3,30 @@
   flex-direction: column;
   max-width: 20em;
   margin-left: 255px;
-  
-  
 }
-#login-form,input{
-border-radius: 5px;
+#login-form,
+input {
+  border-radius: 5px;
 }
-button[type="submit"]{
-  margin-top:15px;
-  border: #A6FFDC;
+button[type="submit"] {
+  margin-top: 15px;
+  border: #a6ffdc;
   border-radius: 10px;
-  background: #00356B ;
-  color: #A6FFDC;
-
+  background: #00356b;
+  color: #a6ffdc;
 }
-button:hover{ margin-top:15px;
-  border: #A6FFDC;
+button:hover {
+  margin-top: 15px;
+  border: #a6ffdc;
   border-radius: 8px;
-  background:#335D89 ;
-  color:#42FFB5;
+  background: #335d89;
+  color: #42ffb5;
 }
-a,button,[type="button"]{
-  color: #00356B;
-  background: #42FFB5;
+a,
+button,
+[type="button"] {
+  color: #00356b;
+  background: #42ffb5;
   border-radius: 10px;
   margin-left: 180px;
   margin-top: 10px;
