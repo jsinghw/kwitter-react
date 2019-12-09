@@ -1,6 +1,6 @@
 import React from "react";
 import ImageUpload from "./ImageUpload";
-import { Modal, Button, Input, Form } from "antd";
+import { Modal, Button, Input } from "antd";
 import "antd/dist/antd.css";
 import "./EditProfile.css";
 import withAsyncAction from "../../HOCs/withAsyncAction";
@@ -12,6 +12,7 @@ class EditProfile extends React.Component {
   state = {
     loading: false,
     visible: false,
+    displayName: "",
     about: ""
   };
 
@@ -34,6 +35,7 @@ class EditProfile extends React.Component {
 
   handleUpdate = e => {
     e.preventDefault();
+    console.log(this.state.about);
     this.props.patchUser(this.state.about);
   };
 
@@ -73,14 +75,19 @@ class EditProfile extends React.Component {
               <br />{" "}
             </div>
           </span>
-          <Input placeholder="Name" /> <br />
+          <Input name="displayName" placeholder="Update Display Name" /> <br />
           <br />
-          <TextArea rows={4} placeholder="Bio" /> <br />
+          <TextArea name="about" rows={4} placeholder="Bio" /> <br />
           <br />
           <Input placeholder="Location" />{" "}
           <div className="row container">
             <DeleteUserButton username={this.props.username}></DeleteUserButton>
-            <Button className="insideButton" type="primary" ghost>
+            <Button
+              className="insideButton"
+              type="primary"
+              ghost
+              onClick={this.handleUpdate}
+            >
               Update
             </Button>
           </div>
