@@ -10,6 +10,7 @@ export { default as MessageCard } from "./MessageCard/MessageCard"
 export { default as ProfileMessages } from "./ProfileMessages/ProfileMessages"
 export { default as DeleteUserButton } from "./DeleteUserButton/DeleteUserButton"
 export { default as DeleteMessageButton } from "./DeleteMessageButton/DeleteMessageButton"
+export {default as DeleteMessageButtonProfile} from "./DeleteMessageButtonProfile/DeleteMessageButtonProfile"
 
 
 

@@ -25,7 +25,8 @@ class Profile extends React.Component {
             <h2>Profile</h2>
             <UserProfile username={this.props.match.params.username} />
             <br />
-            <ProfileMessages username={this.props.match.params.username} />
+            <ProfileMessages username={this.props.match.params.username}
+            reqTag={`?limit=30&offset=0&username=${this.props.match.params.username}`} />
           </Content>
         </Layout>
       </Layout>

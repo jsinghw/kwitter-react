@@ -1,5 +1,5 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
-import { GETUSERMESSAGES, POSTMESSAGES, DELETEMESSAGES } from "../actionTypes";
+import { GETUSERMESSAGES, POSTMESSAGES, DELETEMESSAGES, DELETEMESSAGEPROFILE } from "../actionTypes";
 
 const url = domain + "/messages";
 
@@ -64,16 +64,16 @@ export const PostMessages = messageBody => (dispatch, getState) => {
   });
 };
 
-export const _deleteMessage = (messageID) => (dispatch, getState) => {
+export const _deleteMessage = messageID => (dispatch, getState) => {
   dispatch({ type: DELETEMESSAGES.START });
 
   const { token } = getState().auth.login.result;
-  
 
   return fetch(url + "/" + messageID, {
     method: "DELETE",
     headers: { Authorization: "Bearer " + token, ...jsonHeaders }
-  }).then(console.log(messageID))
+  })
+    .then(console.log(messageID))
     .then(handleJsonResponse)
     .then(result => {
       return dispatch({
@@ -87,9 +87,38 @@ export const _deleteMessage = (messageID) => (dispatch, getState) => {
       );
     });
 };
-export const deleteMessage = (messageID) => (dispatch,getState) => {
+export const deleteMessage = messageID => (dispatch) => {
+  return dispatch(_deleteMessage(messageID)).then(() => {
+  return dispatch(getUserMessages());
+  });
+};
+
+export const _deleteProfileMessage = messageID => (dispatch, getState) => {
+  dispatch({ type: DELETEMESSAGEPROFILE.START });
+
+  const { token } = getState().auth.login.result;
+
+  return fetch(url + "/" + messageID, {
+    method: "DELETE",
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders }
+  })
+    .then(console.log(messageID))
+    .then(handleJsonResponse)
+    .then(result => {
+      return dispatch({
+        type: DELETEMESSAGEPROFILE.SUCCESS,
+        payload: result
+      });
+    })
+    .catch(err => {
+      return Promise.reject(
+        dispatch({ type: DELETEMESSAGEPROFILE.FAIL, payload: err })
+      );
+    });
+};
+export const deleteProfileMessage = messageID => (dispatch, getState) => {
   const { username } = getState().auth.login.result;
   return dispatch(_deleteMessage(messageID)).then(() => {
-    return dispatch(getUserMessages(username));
+  return dispatch(getUserMessages(username));
   });
 };
