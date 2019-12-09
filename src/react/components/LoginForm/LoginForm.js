@@ -20,7 +20,7 @@ class LoginForm extends React.Component {
     return (
       <React.Fragment>
         <form id="login-form" onSubmit={this.handleLogin}>
-          <br/>
+          <br />
           <input
             type="text"
             name="username"
@@ -29,7 +29,7 @@ class LoginForm extends React.Component {
             required
             onChange={this.handleChange}
           />
-          <br/>
+          <br />
           <input
             type="password"
             name="password"

@@ -1,11 +1,11 @@
-import { push } from "react"
+import { push } from "react";
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
 import {
   CREATEUSER,
   GETLISTOFUSERS,
   GETPROFILE,
   DELETEUSER
-} from "../actionTypes"
+} from "../actionTypes";
 import { login } from "./auth";
 
 const url = domain + "/users";
@@ -32,8 +32,8 @@ export const _createUser = values => dispatch => {
           type: CREATEUSER.FAIL,
           payload: err
         })
-      )
-    })
+      );
+    });
 };
 
 export const createUser = values => dispatch => {
@@ -91,12 +91,10 @@ export const getProfile = username => dispatch => {
     });
 };
 
-
 export const deleteUser = () => (dispatch, getState) => {
-  dispatch({ type: DELETEUSER.START })
+  dispatch({ type: DELETEUSER.START });
 
-  const { username, token } = getState().auth.login.result
-  
+  const { username, token } = getState().auth.login.result;
 
   return fetch(url + "/" + username, {
     method: "DELETE",
@@ -107,12 +105,12 @@ export const deleteUser = () => (dispatch, getState) => {
       return dispatch({
         type: DELETEUSER.SUCCESS,
         payload: result
-      })
+      });
     })
-    .then((response) =>{
-      dispatch(push("/"))
+    .then(response => {
+      dispatch(push("/"));
     })
     .catch(err => {
-      return Promise.reject(dispatch({ type: DELETEUSER.FAIL, payload: err }))
-    })
-}
+      return Promise.reject(dispatch({ type: DELETEUSER.FAIL, payload: err }));
+    });
+};

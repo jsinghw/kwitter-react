@@ -7,12 +7,12 @@ import { withAsyncAction } from "../../HOCs";
 import { Spinner } from "..";
 
 class UserProfile extends React.Component {
-  componentDidMount(){
+  componentDidMount() {
     this.props.getProfile(this.props.username);
-  };
-  componentDidUpdate(prevProps){
-    if (this.props.username !== prevProps.username){
-      this.props.getProfile(this.props.username)
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.username !== prevProps.username) {
+      this.props.getProfile(this.props.username);
     }
   }
 
@@ -20,7 +20,7 @@ class UserProfile extends React.Component {
     if (this.props.result === null) {
       return <Spinner className="spinner" name="circle" color="blue" />;
     }
-     const username = JSON.parse(localStorage.login).result.username;
+    const username = JSON.parse(localStorage.login).result.username;
     const profile = this.props.result.user;
     return (
       <React.Fragment>
@@ -38,7 +38,9 @@ class UserProfile extends React.Component {
                 <span className="profileHeader">{profile.displayName}</span>
               </span>
             </div>
-             { (username === profile.displayName) && <EditProfile className="editProfile" />}
+            {username === profile.displayName && (
+              <EditProfile className="editProfile" />
+            )}
             <hr />
             <span className="contentWrapper">
               <span>

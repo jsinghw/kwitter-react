@@ -1,9 +1,9 @@
-import React from "react"
-import { ListOfUsers, Menu } from "../components"
-import { userIsAuthenticated } from "../HOCs"
-import { Layout } from "antd"
+import React from "react";
+import { ListOfUsers, Menu } from "../components";
+import { userIsAuthenticated } from "../HOCs";
+import { Layout } from "antd";
 
-const { Content, Sider } = Layout
+const { Content, Sider } = Layout;
 
 class Users extends React.Component {
   render() {
@@ -17,16 +17,16 @@ class Users extends React.Component {
             left: 0
           }}
         >
-              <Menu isAuthenticated={this.props.isAuthenticated} />
+          <Menu isAuthenticated={this.props.isAuthenticated} />
         </Sider>
         <Layout style={{ marginLeft: 200, marginTop: 20 }}>
           <Content style={{ marginLeft: 50 }}>
-              <ListOfUsers />
+            <ListOfUsers />
           </Content>
         </Layout>
       </Layout>
-    )
+    );
   }
 }
 
-export default userIsAuthenticated(Users)
+export default userIsAuthenticated(Users);

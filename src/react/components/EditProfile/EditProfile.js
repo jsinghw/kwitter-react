@@ -34,7 +34,7 @@ class EditProfile extends React.Component {
     const { visible, loading } = this.state;
     return (
       <div className="editProfile">
-        <Button  type="primary" onClick={this.showModal}>
+        <Button type="primary" onClick={this.showModal}>
           Edit Profile
         </Button>
         <Modal
@@ -68,8 +68,7 @@ class EditProfile extends React.Component {
           <br />
           <Input placeholder="Location" />{" "}
           <div className="row container">
-            <DeleteUserButton username={this.props.username}>
-            </DeleteUserButton>
+            <DeleteUserButton username={this.props.username}></DeleteUserButton>
             <Button className="insideButton" type="primary" ghost>
               Update
             </Button>
