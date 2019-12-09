@@ -3,7 +3,8 @@ import ImageUpload from "./ImageUpload";
 import { Modal, Button, Input, Form } from "antd";
 import "antd/dist/antd.css";
 import "./EditProfile.css";
-import withAsyncAction from "../../HOCs/withAsyncAction"
+import withAsyncAction from "../../HOCs/withAsyncAction";
+import DeleteUserButton from "../DeleteUserButton/DeleteUserButton";
 
 const { TextArea } = Input;
 
@@ -11,7 +12,7 @@ class EditProfile extends React.Component {
   state = {
     loading: false,
     visible: false,
-    about: "",
+    about: ""
   };
 
   showModal = () => {
@@ -44,7 +45,7 @@ class EditProfile extends React.Component {
     const { visible, loading } = this.state;
     return (
       <div className="editProfile">
-        <Button  type="primary" onClick={this.showModal}>
+        <Button type="primary" onClick={this.showModal}>
           Edit Profile
         </Button>
         <Modal
@@ -72,21 +73,17 @@ class EditProfile extends React.Component {
               <br />{" "}
             </div>
           </span>
-          <Form>
-            <Input placeholder="Name" /> <br />
-            <br />
-            <TextArea rows={4} placeholder="Bio" name="about" /> <br />
-            <br />
-            <Input placeholder="Location" />{" "}
-            <div className="row container">
-             <Button className="insideButton" type="danger" ghost>
-                Delete Profile
-             </Button>
-             <Button className="insideButton" type="primary" htmlType="submit" ghost>
-                Update
-             </Button>
-            </div>
-          </Form>
+          <Input placeholder="Name" /> <br />
+          <br />
+          <TextArea rows={4} placeholder="Bio" /> <br />
+          <br />
+          <Input placeholder="Location" />{" "}
+          <div className="row container">
+            <DeleteUserButton username={this.props.username}></DeleteUserButton>
+            <Button className="insideButton" type="primary" ghost>
+              Update
+            </Button>
+          </div>
         </Modal>
       </div>
     );

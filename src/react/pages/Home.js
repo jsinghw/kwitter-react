@@ -1,9 +1,9 @@
-import React from "react"
-import { LoginForm, Menu, SignupForm } from "../components"
-import { userIsNotAuthenticated } from "../HOCs"
-import { Layout } from "antd"
+import React from "react";
+import { LoginForm, Menu, SignupForm } from "../components";
+import { userIsNotAuthenticated } from "../HOCs";
+import { Layout } from "antd";
 
-const { Content, Sider } = Layout
+const { Content, Sider } = Layout;
 
 class Home extends React.Component {
   render() {
@@ -27,8 +27,8 @@ class Home extends React.Component {
           </Content>
         </Layout>
       </Layout>
-    )
+    );
   }
 }
 
-export default userIsNotAuthenticated(Home)
+export default userIsNotAuthenticated(Home);
