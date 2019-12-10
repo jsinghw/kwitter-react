@@ -3,7 +3,7 @@ import moment from "moment";
 import React from "react";
 import "../KweetCard/KweetCard.css";
 import { withAsyncAction } from "../../HOCs";
-import { Spinner, Link } from "..";
+import { Spinner, Link, DeleteMessageButton } from "..";
 
 class Kweets extends React.Component {
   state = {
@@ -42,6 +42,7 @@ class Kweets extends React.Component {
     const getMessages = this.props.result.messages;
     return getMessages.map(message => {
       const { likes, action } = this.state;
+      const username = JSON.parse(localStorage.login).result.username;
 
       const actions = [
         <span key="comment-basic-like">
@@ -52,7 +53,12 @@ class Kweets extends React.Component {
               onClick={this.like}
             />
           </Tooltip>
-          <span style={{ paddingLeft: 8, cursor: "auto" }}>{likes}</span>
+          <span style={{ paddingLeft: 8, cursor: "auto" }}>
+            {likes}
+            {username === message.username && (
+              <DeleteMessageButton messageID={message.id} />
+            )}
+          </span>
         </span>
       ];
 
