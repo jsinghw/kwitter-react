@@ -116,12 +116,16 @@ export const deleteUser = () => (dispatch, getState) => {
     });
 };
 
-export const patchUser = (userData, username) => (dispatch, getState) => {
+export const patchUser = (displayName, about, username) => (
+  dispatch,
+  getState
+) => {
+  const token = getState().auth.login.result.token;
+  const userData = { displayName, about };
+
   dispatch({
     type: PATCHUSER.START
   });
-
-  const token = getState().auth.login.result.token;
 
   return fetch(url + "/" + username, {
     method: "PATCH",
