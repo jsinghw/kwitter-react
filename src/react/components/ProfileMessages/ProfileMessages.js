@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar, Card, Typography } from "antd";
 import { withAsyncAction } from "../../HOCs";
-import { Spinner } from "..";
+import { Spinner, DeleteMessageButtonProfile } from "..";
 
 const { Paragraph } = Typography;
 
@@ -49,6 +49,7 @@ class ProfileMessages extends React.Component {
                   {message.text}
                 </Paragraph>
               </div>
+              <DeleteMessageButtonProfile messageID={message.id}/>
             </span>
           </Card>
         </div>
