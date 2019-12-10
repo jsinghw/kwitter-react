@@ -5,7 +5,7 @@ import {
   GETLISTOFUSERS,
   GETPROFILE,
   DELETEUSER,
-  PATCHUSER
+  UPDATEUSER
 } from "../actionTypes";
 import { login } from "./auth";
 
@@ -116,7 +116,7 @@ export const deleteUser = () => (dispatch, getState) => {
     });
 };
 
-export const patchUser = (displayName, about, username) => (
+export const updateUser = (displayName, about, username) => (
   dispatch,
   getState
 ) => {
@@ -124,7 +124,7 @@ export const patchUser = (displayName, about, username) => (
   const userData = { displayName, about };
 
   dispatch({
-    type: PATCHUSER.START
+    type: UPDATEUSER.START
   });
 
   return fetch(url + "/" + username, {
@@ -135,11 +135,11 @@ export const patchUser = (displayName, about, username) => (
     .then(handleJsonResponse)
     .then(result => {
       return dispatch({
-        type: PATCHUSER.SUCCESS,
+        type: UPDATEUSER.SUCCESS,
         payload: result
       });
     })
     .catch(err => {
-      return Promise.reject(dispatch({ type: PATCHUSER.FAIL, payload: err }));
+      return Promise.reject(dispatch({ type: UPDATEUSER.FAIL, payload: err }));
     });
 };

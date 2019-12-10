@@ -1,4 +1,4 @@
-import { PATCHUSER } from "../../actionTypes";
+import { UPDATEUSER } from "../../actionTypes";
 import { withAsyncReducer } from "../../HORs";
 
 const initialState = {
@@ -7,11 +7,11 @@ const initialState = {
   error: null
 };
 
-const patchUser = (state = initialState, action) => {
+const updateUser = (state = initialState, action) => {
   switch (action.type) {
     default:
       return state;
   }
 };
 
-export default withAsyncReducer(PATCHUSER, patchUser);
+export default withAsyncReducer(UPDATEUSER, updateUser);
