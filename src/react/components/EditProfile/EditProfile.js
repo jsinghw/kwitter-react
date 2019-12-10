@@ -189,9 +189,7 @@ class EditProfile extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    username: state.auth.login.result.username,
-    displayName: state.displayName,
-    about: state.about
+    username: state.auth.login.result.username
   };
 };
 

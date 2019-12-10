@@ -14,4 +14,4 @@ const patchUser = (state = initialState, action) => {
   }
 };
 
-export default withAsyncReducer(PATCHUSER,patchUser);
+export default withAsyncReducer(PATCHUSER, patchUser);
