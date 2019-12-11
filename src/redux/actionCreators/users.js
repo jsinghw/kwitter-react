@@ -4,7 +4,8 @@ import {
   CREATEUSER,
   GETLISTOFUSERS,
   GETPROFILE,
-  DELETEUSER
+  DELETEUSER,
+  PUTUSERPICTURE
 } from "../actionTypes";
 import { login } from "./auth";
 
@@ -114,3 +115,37 @@ export const deleteUser = () => (dispatch, getState) => {
       return Promise.reject(dispatch({ type: DELETEUSER.FAIL, payload: err }));
     });
 };
+
+export const _putUserPicture = formElement => (dispatch, getState) => {
+  dispatch({ type: PUTUSERPICTURE.START });
+
+  const { username, token } = getState().auth.login.result;
+
+  return fetch(`${url}/${username}/picture`, {
+    method: "PUT",
+    headers: {
+      Authorization: "Bearer " + token,
+      Accept: "application/json"
+    },
+    body: new FormData(formElement)
+  })
+    .then(handleJsonResponse)
+    .then(result => {
+      return dispatch({
+        type: PUTUSERPICTURE.SUCCESS,
+        payload: result
+      });
+    })
+    .catch(err => {
+      return Promise.reject(
+        dispatch({ type: PUTUSERPICTURE.FAIL, payload: err })
+      );
+    });
+};
+export const putUserPicture = formElement => (dispatch, getState) => {
+  return dispatch(_putUserPicture(formElement)).then(() => {
+    const username = getState().auth.login.result.username;
+    return dispatch(getProfile(username));
+  });
+};
+

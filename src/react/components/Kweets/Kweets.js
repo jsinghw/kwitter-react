@@ -4,6 +4,7 @@ import React from "react";
 import "../KweetCard/KweetCard.css";
 import { withAsyncAction } from "../../HOCs";
 import { Spinner, Link, DeleteMessageButton } from "..";
+import {domain} from "../../../redux/actionCreators/constants"
 
 class Kweets extends React.Component {
   state = {
@@ -82,9 +83,10 @@ class Kweets extends React.Component {
                     style={{ marginLeft: 0 }}
                   >
                     <Avatar
-                      src={
-                        "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                      }
+                    icon="user"
+                       src={
+                        message.username ? `${domain}/users/${message.username}/picture`: "users"
+                     }
                       alt="Han Solo"
                     />
                   </Link>

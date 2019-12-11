@@ -2,9 +2,10 @@ import React from "react";
 import { Avatar, Card } from "antd";
 import "antd/dist/antd.css";
 import "./UserProfile.css";
-import EditProfile from "../EditProfile/EditProfile";
+import EditProfile  from "../EditProfile/EditProfile";
 import { withAsyncAction } from "../../HOCs";
 import { Spinner } from "..";
+import {domain} from "../../../redux/actionCreators/constants"
 
 class UserProfile extends React.Component {
   componentDidMount() {
@@ -31,8 +32,9 @@ class UserProfile extends React.Component {
                 <Avatar
                   size={64}
                   shape="circle"
-                  icon={
-                    profile.pictureLocation ? profile.pictureLocation : "user"
+                  icon="user"
+                  src={
+                   domain + profile.pictureLocation
                   }
                 />
                 <span className="profileHeader">{profile.displayName}</span>
