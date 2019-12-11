@@ -28,9 +28,6 @@ class KweetCard extends React.Component {
     return (
       <React.Fragment>
         <div style={{ marginLeft: 20 }} className="container1">
-          <div>
-            <h1>KweetFeed</h1>
-          </div>
           <form id="kweetcard" onSubmit={this.handleClick}>
             <Card className="card">
               <div className="row">

@@ -5,7 +5,7 @@ import {
   GETLISTOFUSERS,
   GETPROFILE,
   DELETEUSER,
-  PUTUSERPICTURE
+  UPDATEUSER
 } from "../actionTypes";
 import { login } from "./auth";
 
@@ -116,36 +116,30 @@ export const deleteUser = () => (dispatch, getState) => {
     });
 };
 
-export const _putUserPicture = formElement => (dispatch, getState) => {
-  dispatch({ type: PUTUSERPICTURE.START });
+export const updateUser = (displayName, about, username) => (
+  dispatch,
+  getState
+) => {
+  const token = getState().auth.login.result.token;
+  const userData = { displayName, about };
 
-  const { username, token } = getState().auth.login.result;
+  dispatch({
+    type: UPDATEUSER.START
+  });
 
-  return fetch(`${url}/${username}/picture`, {
-    method: "PUT",
-    headers: {
-      Authorization: "Bearer " + token,
-      Accept: "application/json"
-    },
-    body: new FormData(formElement)
+  return fetch(url + "/" + username, {
+    method: "PATCH",
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders },
+    body: JSON.stringify(userData)
   })
     .then(handleJsonResponse)
     .then(result => {
       return dispatch({
-        type: PUTUSERPICTURE.SUCCESS,
+        type: UPDATEUSER.SUCCESS,
         payload: result
       });
     })
     .catch(err => {
-      return Promise.reject(
-        dispatch({ type: PUTUSERPICTURE.FAIL, payload: err })
-      );
+      return Promise.reject(dispatch({ type: UPDATEUSER.FAIL, payload: err }));
     });
 };
-export const putUserPicture = formElement => (dispatch, getState) => {
-  return dispatch(_putUserPicture(formElement)).then(() => {
-    const username = getState().auth.login.result.username;
-    return dispatch(getProfile(username));
-  });
-};
-

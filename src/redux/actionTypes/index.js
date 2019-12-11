@@ -1,3 +1,5 @@
+import { create } from "domain";
+
 const createActionTypes = actionName => {
   const ACTIONNAME = actionName.toUpperCase();
   return {
@@ -14,12 +16,12 @@ export const LOGOUT = createActionTypes("LOGOUT");
 export const GETLISTOFUSERS = createActionTypes("GETLISTOFUSERS");
 export const GETPROFILE = createActionTypes("GETPROFILE");
 export const CREATEUSER = createActionTypes("CREATEUSER");
+export const UPDATEUSER = createActionTypes("UPDATEUSER");
 export const DELETEUSER = createActionTypes("DELETEUSER");
 export const PUTUSERPICTURE = createActionTypes("PUTUSERPICTURE");
 
 //Messages
-export const GETUSERMESSAGES = createActionTypes("GETUSERMESSAGES")
-export const POSTMESSAGES = createActionTypes("POSTMESSAGES")
-export const DELETEMESSAGES = createActionTypes("DELETEMESSAGES")
-export const DELETEMESSAGEPROFILE = createActionTypes("DELETEMESSAGEPROFILE")
-
+export const GETUSERMESSAGES = createActionTypes("GETUSERMESSAGES");
+export const POSTMESSAGES = createActionTypes("POSTMESSAGES");
+export const DELETEMESSAGES = createActionTypes("DELETEMESSAGES");
+export const DELETEMESSAGEPROFILE = createActionTypes("DELETEMESSAGEPROFILE");
