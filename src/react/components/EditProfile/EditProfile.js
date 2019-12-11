@@ -4,7 +4,7 @@ import ImageUpload from "./ImageUpload";
 import { Modal, Button, Input } from "antd";
 import "antd/dist/antd.css";
 import "./EditProfile.css";
-import withAsyncAction from "../../HOCs/withAsyncAction";
+import { withAsyncAction } from "../../HOCs/index";
 import DeleteUserButton from "../DeleteUserButton/DeleteUserButton";
 
 const { TextArea } = Input;
@@ -28,6 +28,7 @@ class EditProfile extends React.Component {
     setTimeout(() => {
       this.setState({ loading: false, visible: false });
     }, 3000);
+    window.location.reload(true);
   };
 
   handleCancel = () => {
@@ -96,7 +97,6 @@ class EditProfile extends React.Component {
           />{" "}
           <br />
           <br />
-          <Input placeholder="Location" />{" "}
           <div className="row container">
             <DeleteUserButton username={this.props.username}></DeleteUserButton>
             <Button
