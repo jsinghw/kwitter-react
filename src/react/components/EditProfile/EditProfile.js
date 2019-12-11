@@ -7,91 +7,6 @@ import "./EditProfile.css";
 import withAsyncAction from "../../HOCs/withAsyncAction";
 import DeleteUserButton from "../DeleteUserButton/DeleteUserButton";
 
-// const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
-//   // eslint-disable-next-line
-//   class extends React.Component {
-//     render() {
-//       const { visible, onCancel, onCreate, form } = this.props;
-//       const { getFieldDecorator } = form;
-//       return (
-//         <Modal
-//           visible={visible}
-//           title="Update Your User Info"
-//           okText="Create"
-//           onCancel={onCancel}
-//           onOk={onCreate}
-//         >
-//           <Form layout="vertical">
-//             <ImageUpload />
-//             <Form.Item label="Display Name">
-//               {getFieldDecorator("displayName")(<Input type="textarea" />)}
-//             </Form.Item>
-//             <Form.Item label="Bio">
-//               {getFieldDecorator("about")(<Input type="textarea" />)}
-//             </Form.Item>
-//           </Form>
-//           <DeleteUserButton />
-//         </Modal>
-//       );
-//     }
-//   }
-// );
-
-// class EditProfile extends React.Component {
-//   state = {
-//     visible: false
-//   };
-
-//   showModal = () => {
-//     this.setState({ visible: true });
-//   };
-
-//   handleCancel = () => {
-//     this.setState({ visible: false });
-//   };
-
-//   handleCreate = e => {
-//     const { form } = this.formRef.props;
-//     form.validateFields((err, values) => {
-//       if (err) {
-//         return;
-//       }
-
-//       e.preventDefault();
-//       const userInfo = {
-//         username: this.props.username,
-//         displayName: values.displayName,
-//         about: values.about
-//       };
-//       this.props.patchUser(userInfo);
-
-//       console.log("Received values of form: ", values);
-//       form.resetFields();
-//       this.setState({ visible: false });
-//     });
-//   };
-
-//   saveFormRef = formRef => {
-//     this.formRef = formRef;
-//   };
-
-//   render() {
-//     return (
-//       <div>
-//         <Button type="primary" onClick={this.showModal}>
-//           Update Info
-//         </Button>
-//         <CollectionCreateForm
-//           wrappedComponentRef={this.saveFormRef}
-//           visible={this.state.visible}
-//           onCancel={this.handleCancel}
-//           onCreate={this.handleCreate}
-//         />
-//       </div>
-//     );
-//   }
-// }
-
 const { TextArea } = Input;
 
 class EditProfile extends React.Component {
@@ -125,10 +40,9 @@ class EditProfile extends React.Component {
 
   handleUpdate = e => {
     e.preventDefault();
-    console.log(this.state.about);
     this.props.updateUser(
-      this.state.about,
       this.state.displayName,
+      this.state.about,
       this.props.username
     );
   };
