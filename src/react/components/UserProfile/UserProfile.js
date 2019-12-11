@@ -38,21 +38,21 @@ class UserProfile extends React.Component {
                 <span className="profileHeader">{profile.displayName}</span>
               </span>
             </div>
-            {username === profile.displayName && (
+            {username === profile.username && (
               <EditProfile className="editProfile" />
             )}
             <hr />
             <span className="contentWrapper">
               <span>
-                User Name: <span>{profile.username}</span>
+                Display Name: <span>{profile.displayName}</span>
               </span>
               <span>
                 Account Created: {new Date(profile.createdAt).toDateString()}
               </span>
             </span>
             <span>
-              About:{" "}
-              {profile.about ? profile.about : "You do not have an about setup"}
+              About:
+              {profile.about ? profile.about : "You do not have a bio set up"}
             </span>
           </Card>
         </div>

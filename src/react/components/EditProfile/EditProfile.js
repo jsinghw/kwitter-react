@@ -1,8 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
 import ImageUpload from "./ImageUpload";
 import { Modal, Button, Input } from "antd";
 import "antd/dist/antd.css";
 import "./EditProfile.css";
+import { withAsyncAction } from "../../HOCs/index";
 import DeleteUserButton from "../DeleteUserButton/DeleteUserButton";
 
 const { TextArea } = Input;
@@ -10,7 +12,9 @@ const { TextArea } = Input;
 class EditProfile extends React.Component {
   state = {
     loading: false,
-    visible: false
+    visible: false,
+    displayName: this.props.displayName,
+    about: this.props.about
   };
 
   showModal = () => {
@@ -24,10 +28,24 @@ class EditProfile extends React.Component {
     setTimeout(() => {
       this.setState({ loading: false, visible: false });
     }, 3000);
+    window.location.reload(true);
   };
 
   handleCancel = () => {
     this.setState({ visible: false });
+  };
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleUpdate = e => {
+    e.preventDefault();
+    this.props.updateUser(
+      this.state.displayName,
+      this.state.about,
+      this.props.username
+    );
   };
 
   render() {
@@ -39,7 +57,7 @@ class EditProfile extends React.Component {
         </Button>
         <Modal
           visible={visible}
-          title="Title"
+          title="Update your profile"
           onOk={this.handleOk}
           onCancel={this.handleCancel}
           footer={[
@@ -62,14 +80,31 @@ class EditProfile extends React.Component {
               <br />{" "}
             </div>
           </span>
-          <Input placeholder="Name" /> <br />
+          <Input
+            name="displayName"
+            type="text"
+            onChange={this.handleChange}
+            placeholder="Update Display Name"
+          />{" "}
           <br />
-          <TextArea rows={4} placeholder="Bio" /> <br />
           <br />
-          <Input placeholder="Location" />{" "}
+          <TextArea
+            name="about"
+            type="text"
+            onChange={this.handleChange}
+            rows={4}
+            placeholder="Bio"
+          />{" "}
+          <br />
+          <br />
           <div className="row container">
             <DeleteUserButton username={this.props.username}></DeleteUserButton>
-            <Button className="insideButton" type="primary" ghost>
+            <Button
+              className="insideButton"
+              type="primary"
+              ghost
+              onClick={this.handleUpdate}
+            >
               Update
             </Button>
           </div>
@@ -79,4 +114,14 @@ class EditProfile extends React.Component {
   }
 }
 
-export default EditProfile;
+const mapStateToProps = state => {
+  return {
+    username: state.auth.login.result.username,
+    displayName: state.users.getProfile.result.displayName,
+    about: state.users.getProfile.result.about
+  };
+};
+
+export default connect(mapStateToProps)(
+  withAsyncAction("users", "updateUser")(EditProfile)
+);

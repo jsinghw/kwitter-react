@@ -4,7 +4,8 @@ import {
   CREATEUSER,
   GETLISTOFUSERS,
   GETPROFILE,
-  DELETEUSER
+  DELETEUSER,
+  UPDATEUSER
 } from "../actionTypes";
 import { login } from "./auth";
 
@@ -112,5 +113,33 @@ export const deleteUser = () => (dispatch, getState) => {
     })
     .catch(err => {
       return Promise.reject(dispatch({ type: DELETEUSER.FAIL, payload: err }));
+    });
+};
+
+export const updateUser = (displayName, about, username) => (
+  dispatch,
+  getState
+) => {
+  const token = getState().auth.login.result.token;
+  const userData = { displayName, about };
+
+  dispatch({
+    type: UPDATEUSER.START
+  });
+
+  return fetch(url + "/" + username, {
+    method: "PATCH",
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders },
+    body: JSON.stringify(userData)
+  })
+    .then(handleJsonResponse)
+    .then(result => {
+      return dispatch({
+        type: UPDATEUSER.SUCCESS,
+        payload: result
+      });
+    })
+    .catch(err => {
+      return Promise.reject(dispatch({ type: UPDATEUSER.FAIL, payload: err }));
     });
 };
