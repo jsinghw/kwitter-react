@@ -84,10 +84,8 @@ class Kweets extends React.Component {
                   >
                     <Avatar
                     icon="user"
-                       src={
-                        message.username ? `${domain}/users/${message.username}/picture`
-                     }
-                      alt="Han Solo"
+                    src={`${domain}/users/${message.username}/picture`}
+                    alt="Han Solo"
                     />
                   </Link>
                 }
