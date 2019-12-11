@@ -13,8 +13,8 @@ class EditProfile extends React.Component {
   state = {
     loading: false,
     visible: false,
-    displayName: "",
-    about: ""
+    displayName: this.props.displayName,
+    about: this.props.about
   };
 
   showModal = () => {
@@ -117,8 +117,8 @@ class EditProfile extends React.Component {
 const mapStateToProps = state => {
   return {
     username: state.auth.login.result.username,
-    displayName: state.displayName,
-    about: state.about
+    displayName: state.users.getProfile.result.displayName,
+    about: state.users.getProfile.result.about
   };
 };
 
