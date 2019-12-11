@@ -19,7 +19,7 @@ class KweetFeed extends React.Component {
         >
           <Menu isAuthenticated={this.props.isAuthenticated} />
         </Sider>
-        <Layout style={{ marginTop: 20 }}>
+        <Layout style={{ marginLeft: 100, marginTop: 20 }}>
           <Content>
             <KweetList className="pages" />
           </Content>
