@@ -1,10 +1,10 @@
-import { Comment, Icon, Tooltip, Avatar, Card } from "antd";
+import { Comment, Tooltip, Avatar, Card } from "antd";
 import moment from "moment";
 import React from "react";
 import "../KweetCard/KweetCard.css";
 import { withAsyncAction } from "../../HOCs";
 import { Spinner, Link, DeleteMessageButton } from "..";
-import {domain} from "../../../redux/actionCreators/constants"
+import { domain } from "../../../redux/actionCreators/constants";
 
 class Kweets extends React.Component {
   state = {
@@ -42,29 +42,31 @@ class Kweets extends React.Component {
     }
     const getMessages = this.props.result.messages;
     return getMessages.map(message => {
-      const { likes, action } = this.state;
+      // const { likes, action } = this.state;
       const username = JSON.parse(localStorage.login).result.username;
 
       const actions = [
-        <span key="comment-basic-like">
-          <Tooltip title="Like">
+        <span key={"comment-basic-like"}>
+          {/* <Tooltip title="Like">
             <Icon
               type="like"
               theme={action === "liked" ? "filled" : "outlined"}
               onClick={this.like}
             />
-          </Tooltip>
+          </Tooltip> */}
           <span style={{ paddingLeft: 8, cursor: "auto" }}>
-            {likes}
-            <span style={{ paddingLeft: 200}} >{username === message.username && (
-              <DeleteMessageButton  messageID={message.id} />
-            )}</span>
+            {/* {likes} */}
+            <span style={{ paddingLeft: 200 }}>
+              {username === message.username && (
+                <DeleteMessageButton messageID={message.id} />
+              )}
+            </span>
           </span>
         </span>
       ];
 
       return (
-        <div style={{ marginLeft: 20 }} className="container1">
+        <div style={{ marginLeft: 20 }} className="container1" key={message.id}>
           <Card className="card">
             <div className="row">
               <Comment
@@ -83,9 +85,9 @@ class Kweets extends React.Component {
                     style={{ marginLeft: 0 }}
                   >
                     <Avatar
-                    icon="user"
-                    src={`${domain}/users/${message.username}/picture`}
-                    alt="Han Solo"
+                      icon="user"
+                      src={`${domain}/users/${message.username}/picture`}
+                      alt="Han Solo"
                     />
                   </Link>
                 }

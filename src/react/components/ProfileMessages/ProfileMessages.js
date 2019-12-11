@@ -2,7 +2,7 @@ import React from "react";
 import { Avatar, Card, Typography } from "antd";
 import { withAsyncAction } from "../../HOCs";
 import { Spinner, DeleteMessageButtonProfile } from "..";
-import {domain} from "../../../redux/actionCreators/constants"
+import { domain } from "../../../redux/actionCreators/constants";
 const { Paragraph } = Typography;
 
 class ProfileMessages extends React.Component {
@@ -26,7 +26,7 @@ class ProfileMessages extends React.Component {
     const getMessages = this.props.result.messages;
     return getMessages.map(message => {
       return (
-        <div className="container1">
+        <div className="container1" key={message.id}>
           <Card className="card">
             <span className="row">
               <div>
@@ -35,9 +35,7 @@ class ProfileMessages extends React.Component {
                   shape="circle"
                   size={64}
                   icon="user"
-                  src={
-                     `${domain}/users/${message.username}/picture`
-                 }
+                  src={`${domain}/users/${message.username}/picture`}
                 />
                 <div style={{ textAlign: "center" }}>
                   <br />{" "}
@@ -52,8 +50,9 @@ class ProfileMessages extends React.Component {
                   {message.text}
                 </Paragraph>
               </div>
-              <span style={{ paddingLeft: 200}} >
-              <DeleteMessageButtonProfile messageID={message.id}/></span>
+              <span style={{ paddingLeft: 200 }}>
+                <DeleteMessageButtonProfile messageID={message.id} />
+              </span>
             </span>
           </Card>
         </div>
