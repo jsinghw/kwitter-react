@@ -11,7 +11,6 @@ export { default as ProfileMessages } from "./ProfileMessages/ProfileMessages";
 export { default as DeleteUserButton } from "./DeleteUserButton/DeleteUserButton";
 export { default as DeleteMessageButton } from "./DeleteMessageButton/DeleteMessageButton";
 export { default as DeleteMessageButtonProfile } from "./DeleteMessageButtonProfile/DeleteMessageButtonProfile";
-export { default as KweetCard } from "./KweetCard/KweetCard";
 export { default as ImageUpload } from "./EditProfile/ImageUpload";
 
 // components from other packages
