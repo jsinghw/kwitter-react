@@ -14,4 +14,4 @@ const getUserMessages = (state = initialState, action) => {
   }
 };
 
-export default withAsyncReducer(GETUSERMESSAGES,getUserMessages);
+export default withAsyncReducer(GETUSERMESSAGES, getUserMessages);

@@ -1,4 +1,4 @@
-import { GETLISTOFUSERS } from "../../actionTypes";
+import { DELETEUSER } from "../../actionTypes";
 import { withAsyncReducer } from "../../HORs";
 
 const initialState = {
@@ -7,11 +7,11 @@ const initialState = {
   error: null
 };
 
-const getlistofusers = (state = initialState, action) => {
+const deleteUser = (state = initialState, action) => {
   switch (action.type) {
     default:
       return state;
   }
 };
 
-export default withAsyncReducer(GETLISTOFUSERS, getlistofusers);
+export default withAsyncReducer(DELETEUSER, deleteUser);

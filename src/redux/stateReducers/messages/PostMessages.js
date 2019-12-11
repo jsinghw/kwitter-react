@@ -14,4 +14,4 @@ const PostMessages = (state = initialState, action) => {
   }
 };
 
-export default withAsyncReducer(POSTMESSAGES,PostMessages);
+export default withAsyncReducer(POSTMESSAGES, PostMessages);

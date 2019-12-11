@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar, Card, Typography } from "antd";
 import { withAsyncAction } from "../../HOCs";
-import { Spinner } from "..";
+import { Spinner, DeleteMessageButtonProfile } from "..";
 
 const { Paragraph } = Typography;
 
@@ -9,15 +9,19 @@ class ProfileMessages extends React.Component {
   componentDidMount() {
     this.props.getUserMessages(this.props.username);
   }
-  componentDidUpdate(prevProps){
-    if (this.props.username !== prevProps.username){
-      this.props.getUserMessages(this.props.username)
+  componentDidUpdate(prevProps) {
+    if (this.props.username !== prevProps.username) {
+      this.props.getUserMessages(this.props.username);
     }
   }
-  
+
   render() {
     if (this.props.result === null) {
-      return <div><Spinner name="circle" color="blue" /></div>
+      return (
+        <div>
+          <Spinner name="circle" color="blue" />
+        </div>
+      );
     }
     const getMessages = this.props.result.messages;
     return getMessages.map(message => {
@@ -45,8 +49,9 @@ class ProfileMessages extends React.Component {
                   {message.text}
                 </Paragraph>
               </div>
+              <span style={{ paddingLeft: 200}} >
+              <DeleteMessageButtonProfile messageID={message.id}/></span>
             </span>
-
           </Card>
         </div>
       );

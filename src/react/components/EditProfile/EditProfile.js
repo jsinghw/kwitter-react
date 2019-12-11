@@ -3,6 +3,7 @@ import ImageUpload from "./ImageUpload";
 import { Modal, Button, Input } from "antd";
 import "antd/dist/antd.css";
 import "./EditProfile.css";
+import DeleteUserButton from "../DeleteUserButton/DeleteUserButton";
 
 const { TextArea } = Input;
 
@@ -33,7 +34,7 @@ class EditProfile extends React.Component {
     const { visible, loading } = this.state;
     return (
       <div className="editProfile">
-        <Button  type="primary" onClick={this.showModal}>
+        <Button type="primary" onClick={this.showModal}>
           Edit Profile
         </Button>
         <Modal
@@ -67,9 +68,7 @@ class EditProfile extends React.Component {
           <br />
           <Input placeholder="Location" />{" "}
           <div className="row container">
-            <Button className="insideButton" type="danger" ghost>
-              Delete Profile
-            </Button>
+            <DeleteUserButton username={this.props.username}></DeleteUserButton>
             <Button className="insideButton" type="primary" ghost>
               Update
             </Button>

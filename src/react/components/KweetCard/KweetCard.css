@@ -1,22 +1,22 @@
 .row {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .profile {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .button {
-    display: flex;
-    justify-content: flex-end;
-    padding-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
 }
 
 .container1 {
-    margin: 0 10px 20px 0px;
-  }
+  margin: 0 10px 20px 0px;
+}
 
-  .card {
-      border-radius: 5px;
-  }
+.card {
+  border-radius: 5px;
+}

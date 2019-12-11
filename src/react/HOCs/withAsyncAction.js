@@ -50,10 +50,7 @@ const withAsyncAction = (reducerName, actionCreatorName) => component => {
   const actionCreator = actionCreators[actionCreatorName];
   const mapDispatchToProps = { [actionCreatorName]: actionCreator };
 
-  return connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(component);
+  return connect(mapStateToProps, mapDispatchToProps)(component);
 };
 
 export default withAsyncAction;
