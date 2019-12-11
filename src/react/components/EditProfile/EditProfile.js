@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import ImageUpload from "./ImageUpload";
-import { Modal, Button, Input, Form } from "antd";
+import { Modal, Button, Input } from "antd";
 import "antd/dist/antd.css";
 import "./EditProfile.css";
 import withAsyncAction from "../../HOCs/withAsyncAction";

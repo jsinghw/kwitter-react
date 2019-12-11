@@ -38,7 +38,7 @@ class UserProfile extends React.Component {
                 <span className="profileHeader">{profile.displayName}</span>
               </span>
             </div>
-            {username === profile.displayName && (
+            {username === profile.username && (
               <EditProfile className="editProfile" />
             )}
             <hr />
