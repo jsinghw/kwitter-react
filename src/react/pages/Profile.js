@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, UserProfile, ProfileMessages, KweetCard } from "../components";
+import { Menu, UserProfile, ProfileMessages } from "../components";
 import { userIsAuthenticated } from "../HOCs";
 import { Layout } from "antd";
 
@@ -23,8 +23,6 @@ class Profile extends React.Component {
           <Content style={{ marginLeft: 50 }}>
             <h2>Profile</h2>
             <UserProfile username={this.props.match.params.username} />
-            <br />
-            <KweetCard />
             <br />
             <ProfileMessages
               username={this.props.match.params.username}
