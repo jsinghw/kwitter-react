@@ -49,7 +49,8 @@ class ProfileMessages extends React.Component {
                   {message.text}
                 </Paragraph>
               </div>
-              <DeleteMessageButtonProfile messageID={message.id}/>
+              <span style={{ paddingLeft: 200}} >
+              <DeleteMessageButtonProfile messageID={message.id}/></span>
             </span>
           </Card>
         </div>
