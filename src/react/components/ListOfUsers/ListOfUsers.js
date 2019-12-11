@@ -3,6 +3,7 @@ import { Avatar, Button, Card, Typography } from "antd";
 import "../ListOfUsers/ListOfUsers.css";
 import { withAsyncAction } from "../../HOCs";
 import { Spinner, Link } from "..";
+import {domain} from "../../../redux/actionCreators/constants"
 
 const { Paragraph } = Typography;
 
@@ -34,6 +35,10 @@ class ListOfUsers extends React.Component {
                     shape="circle"
                     size={64}
                     icon="user"
+                    src={
+                    `${domain}/users/${user.username}/picture`
+                   }
+          
                   />
                 </Link>
                 <div style={{ textAlign: "center" }}>

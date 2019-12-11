@@ -5,7 +5,8 @@ import {
   GETLISTOFUSERS,
   GETPROFILE,
   DELETEUSER,
-  UPDATEUSER
+  UPDATEUSER,
+  PUTUSERPICTURE
 } from "../actionTypes";
 import { login } from "./auth";
 
@@ -142,4 +143,37 @@ export const updateUser = (displayName, about, username) => (
     .catch(err => {
       return Promise.reject(dispatch({ type: UPDATEUSER.FAIL, payload: err }));
     });
+};
+
+export const _putUserPicture = formElement => (dispatch, getState) => {
+  dispatch({ type: PUTUSERPICTURE.START });
+
+  const { username, token } = getState().auth.login.result;
+
+  return fetch(`${url}/${username}/picture`, {
+    method: "PUT",
+    headers: {
+      Authorization: "Bearer " + token,
+      Accept: "application/json"
+    },
+    body: new FormData(formElement)
+  })
+    .then(handleJsonResponse)
+    .then(result => {
+      return dispatch({
+        type: PUTUSERPICTURE.SUCCESS,
+        payload: result
+      });
+    })
+    .catch(err => {
+      return Promise.reject(
+        dispatch({ type: PUTUSERPICTURE.FAIL, payload: err })
+      );
+    });
+};
+export const putUserPicture = formElement => (dispatch, getState) => {
+  return dispatch(_putUserPicture(formElement)).then(() => {
+    const username = getState().auth.login.result.username;
+    return dispatch(getProfile(username));
+  });
 };

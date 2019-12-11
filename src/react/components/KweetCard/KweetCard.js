@@ -4,6 +4,7 @@ import "antd/dist/antd.css";
 import "./KweetCard.css";
 import { withAsyncAction } from "../../HOCs";
 import { Spinner } from "..";
+import {domain} from "../../../redux/actionCreators/constants"
 
 const { TextArea } = Input;
 
@@ -11,6 +12,7 @@ class KweetCard extends React.Component {
   state = {
     text: ""
   };
+
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -19,8 +21,10 @@ class KweetCard extends React.Component {
     this.props.PostMessages(this.state);
     this.setState({ text: "" });
   };
+
   render() {
     const { loading, error } = this.props;
+    const username = JSON.parse(localStorage.login).result.username;
     return (
       <React.Fragment>
         <div style={{ marginLeft: 20 }} className="container1">
@@ -33,6 +37,9 @@ class KweetCard extends React.Component {
                     shape="circle"
                     size={64}
                     icon="user"
+                    src={
+                       `${domain}/users/${username}/picture`
+                    }
                   />
                   <span style={{ textAlign: "center" }}>
                     <br />{" "}
@@ -63,4 +70,4 @@ class KweetCard extends React.Component {
   }
 }
 
-export default withAsyncAction("messages", "PostMessages")(KweetCard);
+export default withAsyncAction("messages", "PostMessages")(KweetCard)

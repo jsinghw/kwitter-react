@@ -7,6 +7,8 @@ import "./EditProfile.css";
 import { withAsyncAction } from "../../HOCs/index";
 import DeleteUserButton from "../DeleteUserButton/DeleteUserButton";
 
+
+
 const { TextArea } = Input;
 
 class EditProfile extends React.Component {
