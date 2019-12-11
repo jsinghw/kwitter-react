@@ -55,9 +55,9 @@ class Kweets extends React.Component {
           </Tooltip>
           <span style={{ paddingLeft: 8, cursor: "auto" }}>
             {likes}
-            {username === message.username && (
-              <DeleteMessageButton messageID={message.id} />
-            )}
+            <span style={{ paddingLeft: 200}} >{username === message.username && (
+              <DeleteMessageButton  messageID={message.id} />
+            )}</span>
           </span>
         </span>
       ];

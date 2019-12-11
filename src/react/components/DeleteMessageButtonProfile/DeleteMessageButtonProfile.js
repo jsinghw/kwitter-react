@@ -5,14 +5,18 @@ import "../EditProfile/EditProfile.css";
 import { connect } from "react-redux";
 
 class DeleteMessageButtonProfile extends React.Component {
-  handleClick = event => {
-    event.preventDefault();
-    this.props.deleteProfileMessage(this.props.messageID, this.props.token);
+  handleDeleteMessage = event => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this message?"
+    );
+    if (confirmed) {
+      event.preventDefault();
+      this.props.deleteProfileMessage(this.props.messageID, this.props.token);
+    }
   };
-
   render() {
     return (
-      <Button onClick={this.handleClick} className="insideButton" type="danger">
+      <Button onClick={this.handleDeleteMessage} className="insideButton" type="danger">
         <Icon type="delete" />
       </Button>
     );
