@@ -117,11 +117,8 @@ export const deleteUser = () => (dispatch, getState) => {
     });
 };
 
-export const updateUser = (displayName, about, username) => (
-  dispatch,
-  getState
-) => {
-  const token = getState().auth.login.result.token;
+export const _updateUser = (displayName, about) => (dispatch, getState) => {
+  const { username, token } = getState().auth.login.result;
   const userData = { displayName, about };
 
   dispatch({
@@ -143,6 +140,13 @@ export const updateUser = (displayName, about, username) => (
     .catch(err => {
       return Promise.reject(dispatch({ type: UPDATEUSER.FAIL, payload: err }));
     });
+};
+
+export const updateUser = (displayName, about) => (dispatch, getState) => {
+  return dispatch(_updateUser(displayName, about)).then(() => {
+    const username = getState().auth.login.result.username;
+    return dispatch(getProfile(username));
+  });
 };
 
 export const _putUserPicture = formElement => (dispatch, getState) => {
