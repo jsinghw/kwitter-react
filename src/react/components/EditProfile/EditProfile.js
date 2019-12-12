@@ -7,8 +7,6 @@ import "./EditProfile.css";
 import { withAsyncAction } from "../../HOCs/index";
 import DeleteUserButton from "../DeleteUserButton/DeleteUserButton";
 
-
-
 const { TextArea } = Input;
 
 class EditProfile extends React.Component {
@@ -30,7 +28,6 @@ class EditProfile extends React.Component {
     setTimeout(() => {
       this.setState({ loading: false, visible: false });
     }, 3000);
-    window.location.reload(true);
   };
 
   handleCancel = () => {
@@ -118,7 +115,6 @@ class EditProfile extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    username: state.auth.login.result.username,
     displayName: state.users.getProfile.result.displayName,
     about: state.users.getProfile.result.about
   };
