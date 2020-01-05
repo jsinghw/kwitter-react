@@ -59,7 +59,7 @@ class KweetCard extends React.Component {
                   value={this.state.text}
                 />{" "}
               </div>
-              <p>Characters Left: {this.state.charactersRemaining}</p>
+              <p>Characters Remaining: {this.state.charactersRemaining}</p>
               <div className="button">
                 <Button type="primary" htmlType="submit">
                   Kweet
