@@ -4,18 +4,24 @@ import "antd/dist/antd.css";
 import "./KweetCard.css";
 import { withAsyncAction } from "../../HOCs";
 import { Spinner } from "..";
-import {domain} from "../../../redux/actionCreators/constants"
+import { domain } from "../../../redux/actionCreators/constants";
 
 const { TextArea } = Input;
 
 class KweetCard extends React.Component {
   state = {
-    text: ""
+    text: "",
+    charactersRemaining: 255
   };
 
   handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
+    let text = event.target.value;
+    this.setState({
+      [event.target.name]: text,
+      charactersRemaining: 255 - text.length
+    });
   };
+
   handleClick = event => {
     event.preventDefault();
     this.props.PostMessages(this.state);
@@ -37,9 +43,7 @@ class KweetCard extends React.Component {
                     shape="circle"
                     size={64}
                     icon="user"
-                    src={
-                       `${domain}/users/${username}/picture`
-                    }
+                    src={`${domain}/users/${username}/picture`}
                   />
                   <span style={{ textAlign: "center" }}>
                     <br />{" "}
@@ -55,6 +59,7 @@ class KweetCard extends React.Component {
                   value={this.state.text}
                 />{" "}
               </div>
+              <p>Characters Left: {this.state.charactersRemaining}</p>
               <div className="button">
                 <Button type="primary" htmlType="submit">
                   Kweet
@@ -70,4 +75,4 @@ class KweetCard extends React.Component {
   }
 }
 
-export default withAsyncAction("messages", "PostMessages")(KweetCard)
+export default withAsyncAction("messages", "PostMessages")(KweetCard);

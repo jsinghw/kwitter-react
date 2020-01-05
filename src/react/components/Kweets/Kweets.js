@@ -42,20 +42,11 @@ class Kweets extends React.Component {
     }
     const getMessages = this.props.result.messages;
     return getMessages.map(message => {
-      // const { likes, action } = this.state;
       const username = JSON.parse(localStorage.login).result.username;
 
       const actions = [
         <span key={"comment-basic-like"}>
-          {/* <Tooltip title="Like">
-            <Icon
-              type="like"
-              theme={action === "liked" ? "filled" : "outlined"}
-              onClick={this.like}
-            />
-          </Tooltip> */}
           <span style={{ paddingLeft: 8, cursor: "auto" }}>
-            {/* {likes} */}
             <span style={{ paddingLeft: 200 }}>
               {username === message.username && (
                 <DeleteMessageButton messageID={message.id} />
