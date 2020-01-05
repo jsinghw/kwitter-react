@@ -1,4 +1,7 @@
 .signUpButton {
   display: flex;
-  margin-left: 180px;
+  width: 70px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 360px;
 }

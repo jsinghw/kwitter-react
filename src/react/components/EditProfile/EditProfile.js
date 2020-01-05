@@ -47,6 +47,11 @@ class EditProfile extends React.Component {
     );
   };
 
+  twoCalls = i => {
+    this.handleOk();
+    this.handleUpdate(i)
+  }
+
   render() {
     const { visible, loading } = this.state;
     return (
@@ -60,21 +65,29 @@ class EditProfile extends React.Component {
           onOk={this.handleOk}
           onCancel={this.handleCancel}
           footer={[
-            <Button key="back" onClick={this.handleCancel}>
-              Return
-            </Button>,
-            <Button
-              key="submit"
-              type="primary"
-              loading={loading}
-              onClick={this.handleOk}
-            >
-              Submit
-            </Button>
+            <div className="row container">
+              <div className="contain">
+                <DeleteUserButton
+                  username={this.props.username}
+                ></DeleteUserButton>
+              </div>
+              <div className="contain">
+                <Button key="back" onClick={this.handleCancel}>
+                  Cancel
+                </Button>
+                <Button
+                  key="submit"
+                  type="primary"
+                  loading={loading}
+                  onClick={this.twoCalls}
+                >
+                  Update Profile
+                </Button>
+              </div>
+            </div>
           ]}
         >
           <span>
-            <ImageUpload />
             <div style={{ textAlign: "center" }}>
               <br />{" "}
             </div>
@@ -96,17 +109,19 @@ class EditProfile extends React.Component {
           />{" "}
           <br />
           <br />
-          <div className="row container">
-            <DeleteUserButton username={this.props.username}></DeleteUserButton>
-            <Button
+          <div className="row contain">
+          <ImageUpload />
+            {/* <Button
               className="insideButton"
               type="primary"
               ghost
-              onClick={this.handleUpdate}
+              onClick={this.twoCalls}
             >
               Update
-            </Button>
+            </Button> */}
           </div>
+          <br/>
+          <small>*** Note: In order to update the photo, you MUST click "Upload Picture." Clicking "Update Profile" will NOT update the photo! ***</small>
         </Modal>
       </div>
     );

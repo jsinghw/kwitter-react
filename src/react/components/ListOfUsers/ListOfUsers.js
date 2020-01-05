@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Button, Card, Typography } from "antd";
+import { Avatar, Card, Typography } from "antd";
 import "../ListOfUsers/ListOfUsers.css";
 import { withAsyncAction } from "../../HOCs";
 import { Spinner, Link } from "..";
@@ -67,13 +67,13 @@ class ListOfUsers extends React.Component {
                 <Paragraph ellipsis={{ rows: 2, expandable: false }}>
                   {user.about
                     ? user.about
-                    : "This user has not set up an about"}
+                    : " This user has not set up an about"}
                 </Paragraph>
               </div>
             </span>
-            <div className="button">
+            {/* <div className="button">
               <Button type="primary">Follow</Button>
-            </div>
+            </div> */}
           </Card>
         </div>
       );

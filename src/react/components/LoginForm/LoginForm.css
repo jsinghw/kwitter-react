@@ -15,13 +15,6 @@ button[type="submit"] {
   background: #00356b;
   color: #a6ffdc;
 }
-button:hover {
-  margin-top: 15px;
-  border: #a6ffdc;
-  border-radius: 8px;
-  background: #335d89;
-  color: #42ffb5;
-}
 button [type="button"] {
   color: #00356b;
   background: #42ffb5;

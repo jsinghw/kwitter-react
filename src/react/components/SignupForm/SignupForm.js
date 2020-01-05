@@ -18,13 +18,13 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
           onOk={onCreate}
         >
           <Form layout="vertical">
-            <Form.Item name="username" label="Username, 3-20 characters">
+            <Form.Item className="username" label="Username, 3-20 characters">
               {getFieldDecorator("username", {
                 rules: [{ required: true, message: "Please input a username!" }]
               })(<Input placeholder="Username" />)}
             </Form.Item>
             <Form.Item
-              name="displayName"
+              className="displayName"
               label={
                 <span>
                   Display Name, 3-20 characters&nbsp;
@@ -40,7 +40,7 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
                 ]
               })(<Input placeholder="Display Name" type="textarea" />)}
             </Form.Item>
-            <Form.Item name="password" label="Password, 3-20 characters">
+            <Form.Item className="password" label="Password, 3-20 characters">
               {getFieldDecorator("password", {
                 rules: [
                   {
@@ -112,7 +112,7 @@ class Signup extends React.Component {
   render() {
     return (
       <div className="signUpButton">
-        <button type="button" onClick={this.showModal}>
+        <button type="submit" onClick={this.showModal}>
           Sign up!
         </button>
         <CollectionCreateForm

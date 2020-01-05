@@ -1,5 +1,6 @@
 import React from "react";
 import { withAsyncAction, connect } from "../../HOCs";
+// import { Button } from "antd"
 
 class ImageUpload extends React.Component {
   handleUploadUserPicture = event => {
@@ -12,6 +13,7 @@ class ImageUpload extends React.Component {
     return (
         <form onSubmit={this.handleUploadUserPicture}>
           <input type="file" name="picture" />
+          {/* <Button key="submit" type="primary" ghost value="Upload Picture">Update Photo</Button> */}
           <input type="submit" value="Upload Picture" />
         </form>
       

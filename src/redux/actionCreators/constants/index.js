@@ -1,5 +1,6 @@
 export const domain = "https://kwitter-api-wood.herokuapp.com";
 //export const domain = "http://localhost:3000";
+// export const domain = "https://kwitter-api-se-july2019.herokuapp.com";
 
 export const jsonHeaders = {
   "Content-Type": "application/json",
