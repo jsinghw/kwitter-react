@@ -1,10 +1,5 @@
 import { domain, jsonHeaders, handleJsonResponse } from "./constants";
-import {
-  GETUSERMESSAGES,
-  POSTMESSAGES,
-  DELETEMESSAGES,
-  DELETEMESSAGEPROFILE
-} from "../actionTypes";
+import { GETUSERMESSAGES, POSTMESSAGES, DELETEMESSAGES } from "../actionTypes";
 
 const url = domain + "/messages";
 

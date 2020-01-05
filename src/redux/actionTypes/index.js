@@ -24,4 +24,3 @@ export const PUTUSERPICTURE = createActionTypes("PUTUSERPICTURE");
 export const GETUSERMESSAGES = createActionTypes("GETUSERMESSAGES");
 export const POSTMESSAGES = createActionTypes("POSTMESSAGES");
 export const DELETEMESSAGES = createActionTypes("DELETEMESSAGES");
-export const DELETEMESSAGEPROFILE = createActionTypes("DELETEMESSAGEPROFILE");
