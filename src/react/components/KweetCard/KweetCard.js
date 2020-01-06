@@ -10,18 +10,14 @@ const { TextArea } = Input;
 
 class KweetCard extends React.Component {
   state = {
-    text: "",
-    charactersRemaining: 255
+    text: ""
   };
 
   handleChange = event => {
-    let text = event.target.value;
     this.setState({
-      [event.target.name]: text,
-      charactersRemaining: 255 - text.length
+      [event.target.name]: event.target.value
     });
   };
-
   handleClick = event => {
     event.preventDefault();
     this.props.PostMessages(this.state);
@@ -59,7 +55,7 @@ class KweetCard extends React.Component {
                   value={this.state.text}
                 />{" "}
               </div>
-              <p>Characters Remaining: {this.state.charactersRemaining}</p>
+              <p>Characters Remaining: {255 - this.state.text.length}</p>
               <div className="button">
                 <Button type="primary" htmlType="submit">
                   Kweet
