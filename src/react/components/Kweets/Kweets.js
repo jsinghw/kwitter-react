@@ -7,27 +7,6 @@ import { Spinner, Link, DeleteMessageButton } from "..";
 import { domain } from "../../../redux/actionCreators/constants";
 
 class Kweets extends React.Component {
-  state = {
-    likes: 0,
-    dislikes: 0,
-    action: null
-  };
-
-  like = () => {
-    this.setState({
-      likes: 1,
-      dislikes: 0,
-      action: "liked"
-    });
-  };
-
-  dislike = () => {
-    this.setState({
-      likes: 0,
-      dislikes: 1,
-      action: "disliked"
-    });
-  };
   componentDidMount() {
     this.props.getUserMessages();
   }
