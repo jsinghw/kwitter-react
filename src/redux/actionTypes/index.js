@@ -1,5 +1,3 @@
-// import { create } from "domain";
-
 const createActionTypes = actionName => {
   const ACTIONNAME = actionName.toUpperCase();
   return {
@@ -24,3 +22,4 @@ export const PUTUSERPICTURE = createActionTypes("PUTUSERPICTURE");
 export const GETUSERMESSAGES = createActionTypes("GETUSERMESSAGES");
 export const POSTMESSAGES = createActionTypes("POSTMESSAGES");
 export const DELETEMESSAGES = createActionTypes("DELETEMESSAGES");
+export const DELETEPROFILEMESSAGE = createActionTypes("DELETEPROFILEMESSAGE");
